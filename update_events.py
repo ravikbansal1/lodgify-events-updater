@@ -16,9 +16,21 @@ from urllib.parse import quote_plus
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 LOCATIONS = [
-    {"id": "wallingford", "label": "Wallingford, Seattle",  "lat": 47.6535, "lng": -122.3366},
-    {"id": "alki",        "label": "Alki Beach, Seattle",   "lat": 47.5884, "lng": -122.3949},
-    {"id": "lake_hills",  "label": "Lake Hills, Bellevue",  "lat": 47.5990, "lng": -122.1389},
+    {
+        "id": "wallingford", "label": "Wallingford, Seattle",
+        "lat": 47.6535, "lng": -122.3366,
+        "nearby": "Fremont, Capitol Hill, Queen Anne, South Lake Union, University District, Seattle"
+    },
+    {
+        "id": "alki", "label": "Alki Beach, Seattle",
+        "lat": 47.5884, "lng": -122.3949,
+        "nearby": "West Seattle, Burien, White Center, SoDo, Georgetown, Pioneer Square, Seattle"
+    },
+    {
+        "id": "lake_hills", "label": "Lake Hills, Bellevue",
+        "lat": 47.5990, "lng": -122.1389,
+        "nearby": "Bellevue, Redmond, Kirkland, Issaquah, Sammamish, Mercer Island, Eastside Seattle"
+    },
 ]
 
 WEB_SEARCH_TIMEOUT  = 120   # 2 minutes max for web search attempt
@@ -91,18 +103,21 @@ def parse_events(text):
             pass
     return []
 
-def build_prompt(location_label, lat, lng, date_range):
-    return f"""Find as many upcoming local events as possible (up to 20) within a 15-mile radius of {location_label} (coordinates: {lat}, {lng}) for the week of {date_range}.
-Search broadly — include events in the wider {location_label} area, nearby neighborhoods, and surrounding cities within 15 miles.
-If there are 20 or more events, return all 20. If fewer exist, return ALL that you can find — never return an empty list.
-Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, and sports.
-For each event, estimate the distance in miles from {location_label} and sort the list from closest to farthest.
+def build_prompt(location_label, lat, lng, nearby, date_range):
+    return f"""Find as many upcoming local events as possible (up to 20) for the week of {date_range} near {location_label}.
+
+Search ALL of these areas within 15 miles: {nearby}.
+Cast a wide net — include events in every neighborhood and city listed above.
+IMPORTANT: Never return an empty list. If you cannot find events in one area, search the others.
+Include a mix of FREE and PAID events: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, sports — anything a visiting guest would enjoy.
+For each event estimate the distance in miles from {location_label} ({lat}, {lng}) and sort closest to farthest.
+
 Return ONLY a JSON array, no other text:
 [{{
   "name": "Event Name",
   "date": "Sat Mar 22",
   "time": "10am-4pm",
-  "location": "Venue Name",
+  "location": "Venue Name, City",
   "distance_miles": 1.2,
   "description": "One engaging sentence about why visitors would love this.",
   "price": "Free" or "$15 per person"
@@ -110,7 +125,7 @@ Return ONLY a JSON array, no other text:
 Do not include any URLs. Return ONLY the JSON array."""
 
 
-def fetch_with_web_search(location_label, lat, lng, date_range):
+def fetch_with_web_search(location_label, lat, lng, nearby, date_range):
     """Try fetching events using live web search (2 min timeout)."""
     print(f"  Trying web search...")
     response = requests.post(
@@ -124,7 +139,7 @@ def fetch_with_web_search(location_label, lat, lng, date_range):
             "model": "claude-haiku-4-5-20251001",
             "max_tokens": 6000,
             "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
+            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, nearby, date_range)}],
         },
         timeout=WEB_SEARCH_TIMEOUT,
     )
@@ -137,7 +152,7 @@ def fetch_with_web_search(location_label, lat, lng, date_range):
     return parse_events(text)
 
 
-def fetch_with_fallback(location_label, lat, lng, date_range):
+def fetch_with_fallback(location_label, lat, lng, nearby, date_range):
     """Fallback: fetch events using Claude's knowledge only (no web search)."""
     print(f"  Using knowledge fallback...")
     response = requests.post(
@@ -150,7 +165,7 @@ def fetch_with_fallback(location_label, lat, lng, date_range):
         json={
             "model": "claude-haiku-4-5-20251001",
             "max_tokens": 6000,
-            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
+            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, nearby, date_range)}],
         },
         timeout=FALLBACK_TIMEOUT,
     )
@@ -163,7 +178,7 @@ def fetch_with_fallback(location_label, lat, lng, date_range):
     return parse_events(text)
 
 
-def fetch_events_for_location(location_label, lat, lng):
+def fetch_events_for_location(location_label, lat, lng, nearby):
     today      = datetime.now()
     week_ahead = today + timedelta(days=7)
     date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
@@ -171,7 +186,7 @@ def fetch_events_for_location(location_label, lat, lng):
     # ── Attempt 1: Web search (live results) ─────────────────────────────────
     web_events = []
     try:
-        web_events = fetch_with_web_search(location_label, lat, lng, date_range)
+        web_events = fetch_with_web_search(location_label, lat, lng, nearby, date_range)
         if web_events:
             print(f"  ✅ Web search succeeded ({len(web_events)} events)")
         else:
@@ -191,7 +206,7 @@ def fetch_events_for_location(location_label, lat, lng):
     if len(web_events) < 8:
         try:
             print(f"  Running knowledge fallback to supplement results...")
-            fb_events = fetch_with_fallback(location_label, lat, lng, date_range)
+            fb_events = fetch_with_fallback(location_label, lat, lng, nearby, date_range)
             if fb_events:
                 print(f"  ✅ Fallback got {len(fb_events)} events")
                 # Merge: add fallback events not already in web results (by name)
@@ -370,7 +385,7 @@ def main():
             time.sleep(15)
 
         print(f"\nFetching events for {loc['label']}...")
-        events = fetch_events_for_location(loc["label"], loc["lat"], loc["lng"])
+        events = fetch_events_for_location(loc["label"], loc["lat"], loc["lng"], loc["nearby"])
         all_events[loc["id"]] = events
         print(f"  Total: {len(events)} events")
 
