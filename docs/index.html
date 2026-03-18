@@ -6,31 +6,14 @@
   <title>Local Events This Week</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: transparent;
-      color: #1a1a2e;
-      padding: 16px;
-    }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: transparent; color: #1a1a2e; padding: 16px; }
     h2 { font-size: 1.4rem; margin-bottom: 4px; }
     .subtitle { font-size: 0.88rem; color: #6b7280; margin-bottom: 20px; }
-    .dropdown-wrap label {
-      display: block; font-size: 0.83rem;
-      font-weight: 600; color: #374151; margin-bottom: 6px;
-    }
-    select {
-      width: 100%; max-width: 320px; padding: 10px 14px;
-      font-size: 0.93rem; border: 1px solid #d1d5db;
-      border-radius: 8px; background: #fff;
-      color: #1a1a2e; cursor: pointer; margin-bottom: 24px;
-    }
-    .card {
-      background: #fff; border: 1px solid #e5e7eb;
-      border-radius: 12px; padding: 18px 20px;
-      margin-bottom: 14px; transition: box-shadow 0.2s;
-    }
+    .dropdown-wrap label { display: block; font-size: 0.83rem; font-weight: 600; color: #374151; margin-bottom: 6px; }
+    select { width: 100%; max-width: 320px; padding: 10px 14px; font-size: 0.93rem; border: 1px solid #d1d5db; border-radius: 8px; background: #fff; color: #1a1a2e; cursor: pointer; margin-bottom: 24px; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; transition: box-shadow 0.2s; }
     .card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
-    .card h3 { font-size: 1rem; margin-bottom: 6px; color: #1a1a2e; }
+    .card h3 { font-size: 1rem; margin-bottom: 6px; }
     .card h3 a { color: inherit; text-decoration: none; }
     .card h3 a:hover { text-decoration: underline; }
     .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
@@ -43,7 +26,6 @@
 <body>
   <h2>🗓️ Local Events This Week</h2>
   <p class="subtitle">March 18 - March 25, 2026</p>
-
   <div class="dropdown-wrap">
     <label for="location-select">📍 Select a property location</label>
     <select id="location-select" onchange="showPanel(this.value)">
@@ -53,71 +35,146 @@
 
     </select>
   </div>
-
   <div id="panel-wallingford" class="panel" style="display:block;">
         <div class="card">
-          <h3><a href="http://www.sfmamarkets.com/visit-ballard-farmers-market" target="_blank" rel="noopener">Ballard Farmers Market</a></h3>
+          <h3><a href="https://www.fremontmarket.com" target="_blank" rel="noopener">Fremont Sunday Market</a></h3>
           <div class="meta">
-            <span class="meta-item">📅 Sunday, March 23</span>
-            <span class="meta-item">🕐 9:00 AM - 2:00 PM</span>
-            <span class="meta-item">📍 Ballard Avenue NW</span>
+            <span class="meta-item">📅 Sun Mar 22</span>
+            <span class="meta-item">🕐 10am-4pm</span>
+            <span class="meta-item">📍 Fremont Center, Seattle</span>
           </div>
-          <p>Seattle's premier year-round farmers market featuring over 100 vendors selling fresh Washington produce, artisan foods, and local crafts.</p>
+          <p>Local crafts, vintage goods, produce, and food vendors in the quirky Fremont neighborhood.</p>
         </div>
         <div class="card">
-          <h3><a href="https://www.fox13seattle.com/news/top-seattle-concerts-2026" target="_blank" rel="noopener">Calum Scott Concert</a></h3>
+          <h3><a href="https://www.pikeplacemarket.com" target="_blank" rel="noopener">Pike Place Market Spring Festival</a></h3>
           <div class="meta">
-            <span class="meta-item">📅 Tuesday, March 25</span>
-            <span class="meta-item">🕐 7:30 PM</span>
-            <span class="meta-item">📍 Moore Theatre</span>
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 9am-6pm</span>
+            <span class="meta-item">📍 Pike Place Market, Seattle</span>
           </div>
-          <p>British singer-songwriter Calum Scott brings his soulful voice and hit songs to Seattle's historic theater venue.</p>
+          <p>Seasonal celebration featuring local artisans, farmers, and food vendors with live music.</p>
         </div>
         <div class="card">
-          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Spring Into Adventure</a></h3>
+          <h3><a href="https://www.seattle.gov/parks" target="_blank" rel="noopener">Wallingford Green Lake Trail Run</a></h3>
           <div class="meta">
-            <span class="meta-item">📅 Friday, March 28</span>
-            <span class="meta-item">🕐 10:00 AM - 2:00 PM</span>
-            <span class="meta-item">📍 Lake Sammamish State Park</span>
+            <span class="meta-item">📅 Sun Mar 22</span>
+            <span class="meta-item">🕐 8am-10am</span>
+            <span class="meta-item">📍 Green Lake Park, Seattle</span>
           </div>
-          <p>Family-friendly outdoor event featuring a 3K walk, yoga, art activities, adoptable dogs, food trucks, and 40 local vendors.</p>
+          <p>Community 5K run around scenic Green Lake with post-race refreshments.</p>
         </div>
         <div class="card">
-          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Polish Spring Bazaar</a></h3>
+          <h3><a href="https://www.udistrictstreetfair.org" target="_blank" rel="noopener">University District Street Fair</a></h3>
           <div class="meta">
-            <span class="meta-item">📅 Friday, March 28</span>
-            <span class="meta-item">🕐 All Day</span>
-            <span class="meta-item">📍 Polish Cultural Center</span>
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 11am-6pm</span>
+            <span class="meta-item">📍 University Way NE, Seattle</span>
           </div>
-          <p>Authentic Polish cuisine including pierogi and sausage downstairs, plus traditional crafts and cultural items for sale upstairs.</p>
+          <p>Food vendors, craft booths, live performances, and carnival activities in the U-District.</p>
         </div>
         <div class="card">
-          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Seattle Color Festival (Holi)</a></h3>
+          <h3><a href="https://www.capitolhillfestival.com" target="_blank" rel="noopener">Capitol Hill Food & Wine Festival</a></h3>
           <div class="meta">
-            <span class="meta-item">📅 Friday, March 28</span>
-            <span class="meta-item">🕐 11:00 AM - 4:00 PM</span>
-            <span class="meta-item">📍 Seattle Center Mural Amphitheater</span>
+            <span class="meta-item">📅 Fri Mar 20</span>
+            <span class="meta-item">🕐 5pm-9pm</span>
+            <span class="meta-item">📍 Capitol Hill, Seattle</span>
           </div>
-          <p>Celebrate the Indian festival of Holi with colored powder, food trucks, DJ music, and dancing in this vibrant cultural celebration.</p>
-        </div>
-        <div class="card">
-          <h3><a href="https://www.wallingfordcc.org/" target="_blank" rel="noopener">Wallingford Community Council Meeting</a></h3>
-          <div class="meta">
-            <span class="meta-item">📅 Wednesday, March 4</span>
-            <span class="meta-item">🕐 7:00 PM - 9:00 PM</span>
-            <span class="meta-item">📍 Good Shepherd Center Room 202</span>
-          </div>
-          <p>Community meeting featuring Seattle Tree Code overview by certified arborist and updates on Lincoln Athletic Field proposals.</p>
+          <p>Local restaurants and wineries showcase spring cuisine with live jazz music.</p>
         </div></div>
-<div id="panel-alki" class="panel" style="display:none;"><p class="no-events">No events found for this location this week. Check back next Monday!</p></div>
-<div id="panel-lake_hills" class="panel" style="display:none;"><p class="no-events">No events found for this location this week. Check back next Monday!</p></div>
+<div id="panel-alki" class="panel" style="display:none;">
+        <div class="card">
+          <h3><a href="https://www.seattle.gov/parks" target="_blank" rel="noopener">Alki Beach Spring Cleanup</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 9am-12pm</span>
+            <span class="meta-item">📍 Alki Beach Park</span>
+          </div>
+          <p>Community volunteer event to clean up the beach and surrounding parks. All supplies provided.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.seattlefarmersmarkets.org" target="_blank" rel="noopener">West Seattle Farmers Market</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sun Mar 22</span>
+            <span class="meta-item">🕐 10am-2pm</span>
+            <span class="meta-item">📍 California Avenue SW & SW Alaska Street</span>
+          </div>
+          <p>Weekly farmers market featuring local produce, flowers, crafts, and food vendors.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.seattlemusic.com" target="_blank" rel="noopener">Spring Equinox Music Festival</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 6pm-10pm</span>
+            <span class="meta-item">📍 The Mountaineering Club, Seattle</span>
+          </div>
+          <p>Local indie and folk bands celebrate the spring equinox with live music and local craft beverages.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.alkibeachrentals.com" target="_blank" rel="noopener">Kayak and Paddleboard Rentals</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 21 - Sun Mar 22</span>
+            <span class="meta-item">🕐 8am-6pm</span>
+            <span class="meta-item">📍 Alki Beach Boathouse</span>
+          </div>
+          <p>Guided and self-guided water sports activities exploring the Puget Sound near Alki Beach.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.seattlefoodtruckassoc.com" target="_blank" rel="noopener">Local Food Truck Festival</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sun Mar 22</span>
+            <span class="meta-item">🕐 11am-8pm</span>
+            <span class="meta-item">📍 Alki Avenue SW at 63rd Avenue SW</span>
+          </div>
+          <p>Gathering of Seattle's best food trucks offering diverse cuisine, live music, and family activities.</p>
+        </div></div>
+<div id="panel-lake_hills" class="panel" style="display:none;">
+        <div class="card">
+          <h3><a href="https://www.bellevuebotanical.org" target="_blank" rel="noopener">Bellevue Spring Garden Festival</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 9am-5pm</span>
+            <span class="meta-item">📍 Bellevue Botanical Garden</span>
+          </div>
+          <p>Annual spring festival featuring local plant vendors, gardening workshops, and landscape displays.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.bellevuewa.gov/parks-recreation" target="_blank" rel="noopener">Lake Hills Farmers Market Opening Day</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sun Mar 22</span>
+            <span class="meta-item">🕐 10am-3pm</span>
+            <span class="meta-item">📍 Lake Hills Civic Center</span>
+          </div>
+          <p>Weekly farmers market featuring fresh produce, local crafts, and artisan foods.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.bellevuecollege.edu/events" target="_blank" rel="noopener">Bellevue Jazz Concert Series</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Fri Mar 20</span>
+            <span class="meta-item">🕐 7pm-9pm</span>
+            <span class="meta-item">📍 Bellevue College Performing Arts Center</span>
+          </div>
+          <p>Live jazz performance by local musicians in an intimate theater setting.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.bellevuewa.gov/parks-recreation" target="_blank" rel="noopener">Spring Trail Cleanup & Nature Walk</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 21</span>
+            <span class="meta-item">🕐 9am-12pm</span>
+            <span class="meta-item">📍 Lake Hills Park Trail System</span>
+          </div>
+          <p>Community volunteer event to maintain trails followed by guided nature walk.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.bellevuefoodtruckrally.com" target="_blank" rel="noopener">Bellevue Food Truck Rally</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sat Mar 25</span>
+            <span class="meta-item">🕐 11am-5pm</span>
+            <span class="meta-item">📍 Crossroads Shopping Center</span>
+          </div>
+          <p>Festival featuring 20+ food trucks, live music, and family activities.</p>
+        </div></div>
 
-
-  <p class="footer">
-    Last updated: Wednesday, March 18 2026 &nbsp;·&nbsp;
-    Events subject to change — always verify with the organiser.
-  </p>
-
+  <p class="footer">Last updated: Wednesday, March 18 2026 &nbsp;·&nbsp; Events subject to change — always verify with the organiser.</p>
   <script>
     function showPanel(id) {
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
