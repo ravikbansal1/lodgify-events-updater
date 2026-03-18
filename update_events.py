@@ -17,7 +17,6 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 LOCATIONS = [
     {"id": "wallingford",  "label": "Wallingford, Seattle"},
     {"id": "alki",         "label": "Alki Beach, Seattle"},
-    {"id": "lake_hills",   "label": "Lake Hills, Bellevue"},
 ]
 
 API_TIMEOUT = 45
