@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Local Events This Week</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: transparent;
+      color: #1a1a2e;
+      padding: 16px;
+    }
+    h2 { font-size: 1.4rem; margin-bottom: 4px; }
+    .subtitle { font-size: 0.88rem; color: #6b7280; margin-bottom: 20px; }
+    .dropdown-wrap label {
+      display: block; font-size: 0.83rem;
+      font-weight: 600; color: #374151; margin-bottom: 6px;
+    }
+    select {
+      width: 100%; max-width: 320px; padding: 10px 14px;
+      font-size: 0.93rem; border: 1px solid #d1d5db;
+      border-radius: 8px; background: #fff;
+      color: #1a1a2e; cursor: pointer; margin-bottom: 24px;
+    }
+    .card {
+      background: #fff; border: 1px solid #e5e7eb;
+      border-radius: 12px; padding: 18px 20px;
+      margin-bottom: 14px; transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
+    .card h3 { font-size: 1rem; margin-bottom: 6px; color: #1a1a2e; }
+    .card h3 a { color: inherit; text-decoration: none; }
+    .card h3 a:hover { text-decoration: underline; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .meta-item { font-size: 0.8rem; color: #6b7280; }
+    .card p { font-size: 0.92rem; color: #374151; line-height: 1.5; }
+    .no-events { color: #6b7280; font-size: 0.92rem; padding: 12px 0; }
+    .footer { font-size: 0.72rem; color: #9ca3af; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>🗓️ Local Events This Week</h2>
+  <p class="subtitle">March 18 - March 25, 2026</p>
+
+  <div class="dropdown-wrap">
+    <label for="location-select">📍 Select a property location</label>
+    <select id="location-select" onchange="showPanel(this.value)">
+      <option value="wallingford">Wallingford, Seattle</option>
+<option value="alki">Alki Beach, Seattle</option>
+<option value="lake_hills">Lake Hills, Bellevue</option>
+
+    </select>
+  </div>
+
+  <div id="panel-wallingford" class="panel" style="display:block;">
+        <div class="card">
+          <h3><a href="http://www.sfmamarkets.com/visit-ballard-farmers-market" target="_blank" rel="noopener">Ballard Farmers Market</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Sunday, March 23</span>
+            <span class="meta-item">🕐 9:00 AM - 2:00 PM</span>
+            <span class="meta-item">📍 Ballard Avenue NW</span>
+          </div>
+          <p>Seattle's premier year-round farmers market featuring over 100 vendors selling fresh Washington produce, artisan foods, and local crafts.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.fox13seattle.com/news/top-seattle-concerts-2026" target="_blank" rel="noopener">Calum Scott Concert</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Tuesday, March 25</span>
+            <span class="meta-item">🕐 7:30 PM</span>
+            <span class="meta-item">📍 Moore Theatre</span>
+          </div>
+          <p>British singer-songwriter Calum Scott brings his soulful voice and hit songs to Seattle's historic theater venue.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Spring Into Adventure</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Friday, March 28</span>
+            <span class="meta-item">🕐 10:00 AM - 2:00 PM</span>
+            <span class="meta-item">📍 Lake Sammamish State Park</span>
+          </div>
+          <p>Family-friendly outdoor event featuring a 3K walk, yoga, art activities, adoptable dogs, food trucks, and 40 local vendors.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Polish Spring Bazaar</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Friday, March 28</span>
+            <span class="meta-item">🕐 All Day</span>
+            <span class="meta-item">📍 Polish Cultural Center</span>
+          </div>
+          <p>Authentic Polish cuisine including pierogi and sausage downstairs, plus traditional crafts and cultural items for sale upstairs.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.events12.com/seattle/" target="_blank" rel="noopener">Seattle Color Festival (Holi)</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Friday, March 28</span>
+            <span class="meta-item">🕐 11:00 AM - 4:00 PM</span>
+            <span class="meta-item">📍 Seattle Center Mural Amphitheater</span>
+          </div>
+          <p>Celebrate the Indian festival of Holi with colored powder, food trucks, DJ music, and dancing in this vibrant cultural celebration.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.wallingfordcc.org/" target="_blank" rel="noopener">Wallingford Community Council Meeting</a></h3>
+          <div class="meta">
+            <span class="meta-item">📅 Wednesday, March 4</span>
+            <span class="meta-item">🕐 7:00 PM - 9:00 PM</span>
+            <span class="meta-item">📍 Good Shepherd Center Room 202</span>
+          </div>
+          <p>Community meeting featuring Seattle Tree Code overview by certified arborist and updates on Lincoln Athletic Field proposals.</p>
+        </div></div>
+<div id="panel-alki" class="panel" style="display:none;"><p class="no-events">No events found for this location this week. Check back next Monday!</p></div>
+<div id="panel-lake_hills" class="panel" style="display:none;"><p class="no-events">No events found for this location this week. Check back next Monday!</p></div>
+
+
+  <p class="footer">
+    Last updated: Wednesday, March 18 2026 &nbsp;·&nbsp;
+    Events subject to change — always verify with the organiser.
+  </p>
+
+  <script>
+    function showPanel(id) {
+      document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+      var el = document.getElementById('panel-' + id);
+      if (el) el.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
