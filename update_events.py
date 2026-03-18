@@ -92,8 +92,9 @@ def parse_events(text):
     return []
 
 def build_prompt(location_label, lat, lng, date_range):
-    return f"""Find as many upcoming local events as possible (up to 20) within a 10-mile radius of {location_label} (coordinates: {lat}, {lng}) for the week of {date_range}.
-Only include events within 10 miles of this location. If there are 20 or more events, return all 20. If fewer exist, return however many there are.
+    return f"""Find as many upcoming local events as possible (up to 20) within a 15-mile radius of {location_label} (coordinates: {lat}, {lng}) for the week of {date_range}.
+Search broadly — include events in the wider {location_label} area, nearby neighborhoods, and surrounding cities within 15 miles.
+If there are 20 or more events, return all 20. If fewer exist, return ALL that you can find — never return an empty list.
 Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, and sports.
 For each event, estimate the distance in miles from {location_label} and sort the list from closest to farthest.
 Return ONLY a JSON array, no other text:
@@ -121,7 +122,7 @@ def fetch_with_web_search(location_label, lat, lng, date_range):
         },
         json={
             "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 4000,
+            "max_tokens": 6000,
             "tools": [{"type": "web_search_20250305", "name": "web_search"}],
             "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
         },
@@ -148,7 +149,7 @@ def fetch_with_fallback(location_label, lat, lng, date_range):
         },
         json={
             "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 4000,
+            "max_tokens": 6000,
             "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
         },
         timeout=FALLBACK_TIMEOUT,
@@ -168,12 +169,13 @@ def fetch_events_for_location(location_label, lat, lng):
     date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
 
     # ── Attempt 1: Web search (live results) ─────────────────────────────────
+    web_events = []
     try:
-        events = fetch_with_web_search(location_label, lat, lng, date_range)
-        if events:
-            print(f"  ✅ Web search succeeded ({len(events)} events)")
-            return events
-        print(f"  ⚠️  Web search returned no events, falling back...")
+        web_events = fetch_with_web_search(location_label, lat, lng, date_range)
+        if web_events:
+            print(f"  ✅ Web search succeeded ({len(web_events)} events)")
+        else:
+            print(f"  ⚠️  Web search returned no events, falling back...")
     except requests.exceptions.Timeout:
         print(f"  ⏱️  Web search timed out after {WEB_SEARCH_TIMEOUT}s, falling back...")
     except requests.exceptions.HTTPError as e:
@@ -185,16 +187,26 @@ def fetch_events_for_location(location_label, lat, lng):
     except Exception as e:
         print(f"  Web search error: {e}, falling back...")
 
-    # ── Attempt 2: Knowledge fallback ────────────────────────────────────────
-    try:
-        events = fetch_with_fallback(location_label, lat, lng, date_range)
-        if events:
-            print(f"  ✅ Fallback succeeded ({len(events)} events)")
-            return events
-    except Exception as e:
-        print(f"  Fallback also failed: {e}")
+    # ── Attempt 2: Knowledge fallback (always runs if web search got < 8 events) ──
+    if len(web_events) < 8:
+        try:
+            print(f"  Running knowledge fallback to supplement results...")
+            fb_events = fetch_with_fallback(location_label, lat, lng, date_range)
+            if fb_events:
+                print(f"  ✅ Fallback got {len(fb_events)} events")
+                # Merge: add fallback events not already in web results (by name)
+                existing_names = {e.get("name", "").lower() for e in web_events}
+                for e in fb_events:
+                    if e.get("name", "").lower() not in existing_names:
+                        web_events.append(e)
+                        existing_names.add(e.get("name", "").lower())
+                print(f"  ✅ Combined total: {len(web_events)} events")
+        except Exception as e:
+            print(f"  Fallback error: {e}")
 
-    return []
+    # Re-sort combined list by distance
+    web_events.sort(key=lambda e: float(e.get("distance_miles") or 99))
+    return web_events[:20]
 
 
 def build_html(all_events):
