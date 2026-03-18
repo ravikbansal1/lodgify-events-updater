@@ -16,9 +16,9 @@ from urllib.parse import quote_plus
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 LOCATIONS = [
-    {"id": "wallingford",  "label": "Wallingford, Seattle"},
-    {"id": "alki",         "label": "Alki Beach, Seattle"},
-    {"id": "lake_hills",   "label": "Lake Hills, Bellevue"},
+    {"id": "wallingford", "label": "Wallingford, Seattle",  "lat": 47.6535, "lng": -122.3366},
+    {"id": "alki",        "label": "Alki Beach, Seattle",   "lat": 47.5884, "lng": -122.3949},
+    {"id": "lake_hills",  "label": "Lake Hills, Bellevue",  "lat": 47.5990, "lng": -122.1389},
 ]
 
 WEB_SEARCH_TIMEOUT  = 120   # 2 minutes max for web search attempt
@@ -91,23 +91,25 @@ def parse_events(text):
             pass
     return []
 
-def build_prompt(location_label, date_range):
-    return f"""Find as many upcoming local events as possible (up to 20) near {location_label} for the week of {date_range}.
-If there are 20 or more events happening, return all 20. If fewer exist, return however many there are.
+def build_prompt(location_label, lat, lng, date_range):
+    return f"""Find as many upcoming local events as possible (up to 20) within a 10-mile radius of {location_label} (coordinates: {lat}, {lng}) for the week of {date_range}.
+Only include events within 10 miles of this location. If there are 20 or more events, return all 20. If fewer exist, return however many there are.
 Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, and sports.
+For each event, estimate the distance in miles from {location_label} and sort the list from closest to farthest.
 Return ONLY a JSON array, no other text:
 [{{
   "name": "Event Name",
   "date": "Sat Mar 22",
   "time": "10am-4pm",
   "location": "Venue Name",
+  "distance_miles": 1.2,
   "description": "One engaging sentence about why visitors would love this.",
   "price": "Free" or "$15 per person"
 }}]
 Do not include any URLs. Return ONLY the JSON array."""
 
 
-def fetch_with_web_search(location_label, date_range):
+def fetch_with_web_search(location_label, lat, lng, date_range):
     """Try fetching events using live web search (2 min timeout)."""
     print(f"  Trying web search...")
     response = requests.post(
@@ -121,7 +123,7 @@ def fetch_with_web_search(location_label, date_range):
             "model": "claude-haiku-4-5-20251001",
             "max_tokens": 4000,
             "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-            "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
+            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
         },
         timeout=WEB_SEARCH_TIMEOUT,
     )
@@ -134,7 +136,7 @@ def fetch_with_web_search(location_label, date_range):
     return parse_events(text)
 
 
-def fetch_with_fallback(location_label, date_range):
+def fetch_with_fallback(location_label, lat, lng, date_range):
     """Fallback: fetch events using Claude's knowledge only (no web search)."""
     print(f"  Using knowledge fallback...")
     response = requests.post(
@@ -147,7 +149,7 @@ def fetch_with_fallback(location_label, date_range):
         json={
             "model": "claude-haiku-4-5-20251001",
             "max_tokens": 4000,
-            "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
+            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, date_range)}],
         },
         timeout=FALLBACK_TIMEOUT,
     )
@@ -160,14 +162,14 @@ def fetch_with_fallback(location_label, date_range):
     return parse_events(text)
 
 
-def fetch_events_for_location(location_label):
+def fetch_events_for_location(location_label, lat, lng):
     today      = datetime.now()
     week_ahead = today + timedelta(days=7)
     date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
 
     # ── Attempt 1: Web search (live results) ─────────────────────────────────
     try:
-        events = fetch_with_web_search(location_label, date_range)
+        events = fetch_with_web_search(location_label, lat, lng, date_range)
         if events:
             print(f"  ✅ Web search succeeded ({len(events)} events)")
             return events
@@ -185,7 +187,7 @@ def fetch_events_for_location(location_label):
 
     # ── Attempt 2: Knowledge fallback ────────────────────────────────────────
     try:
-        events = fetch_with_fallback(location_label, date_range)
+        events = fetch_with_fallback(location_label, lat, lng, date_range)
         if events:
             print(f"  ✅ Fallback succeeded ({len(events)} events)")
             return events
@@ -227,7 +229,9 @@ def build_html(all_events):
                     price_label = "✨ Free" if is_free else f"🎟️ {price}"
                     price_html  = f'<span class="price-badge {price_class}">{price_label}</span>'
                 time_str = f'<span>🕐 {e["time"]}</span>' if e.get("time") else ""
-                loc_str  = f'<span>📍 {e["location"]}</span>' if e.get("location") else ""
+                loc_str      = f'<span>📍 {e["location"]}</span>' if e.get("location") else ""
+                dist         = e.get("distance_miles")
+                distance_str = f'<span>📏 {dist} mi away</span>' if dist else ""
 
                 cards += f"""
             <a href="{search_url}" target="_blank" rel="noopener" class="card-link">
@@ -242,6 +246,7 @@ def build_html(all_events):
                   <span>📅 {e.get("date", "")}</span>
                   {time_str}
                   {loc_str}
+                  {distance_str}
                 </div>
                 <p>{e.get("description", "")}</p>
                 <span class="cta">Search for details →</span>
@@ -353,7 +358,7 @@ def main():
             time.sleep(15)
 
         print(f"\nFetching events for {loc['label']}...")
-        events = fetch_events_for_location(loc["label"])
+        events = fetch_events_for_location(loc["label"], loc["lat"], loc["lng"])
         all_events[loc["id"]] = events
         print(f"  Total: {len(events)} events")
 
