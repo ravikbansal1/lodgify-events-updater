@@ -18,6 +18,7 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 LOCATIONS = [
     {"id": "wallingford",  "label": "Wallingford, Seattle"},
     {"id": "alki",         "label": "Alki Beach, Seattle"},
+    {"id": "lake_hills",   "label": "Lake Hills, Bellevue"},
 ]
 
 WEB_SEARCH_TIMEOUT  = 120   # 2 minutes max for web search attempt
@@ -86,8 +87,9 @@ def parse_events(text):
     return []
 
 def build_prompt(location_label, date_range):
-    return f"""Find 6 upcoming local events near {location_label} for the week of {date_range}.
-Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events.
+    return f"""Find as many upcoming local events as possible (up to 20) near {location_label} for the week of {date_range}.
+If there are 20 or more events happening, return all 20. If fewer exist, return however many there are.
+Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, and sports.
 Return ONLY a JSON array, no other text:
 [{{
   "name": "Event Name",
@@ -112,7 +114,7 @@ def fetch_with_web_search(location_label, date_range):
         },
         json={
             "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 1500,
+            "max_tokens": 4000,
             "tools": [{"type": "web_search_20250305", "name": "web_search"}],
             "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
         },
@@ -139,7 +141,7 @@ def fetch_with_fallback(location_label, date_range):
         },
         json={
             "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 1500,
+            "max_tokens": 4000,
             "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
         },
         timeout=FALLBACK_TIMEOUT,
