@@ -8,23 +8,17 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #f8f9fb; color: #1a1a2e; }
-
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: #fff;
-      padding: 48px 24px 40px;
-      text-align: center;
+      color: #fff; padding: 48px 24px 40px; text-align: center;
     }
     .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
     .hero p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
     .date-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 16px; border-radius: 999px;
-      font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 12px;
+      display: inline-block; background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px;
+      border-radius: 999px; font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 12px;
     }
-
     .tabs-wrap {
       background: #fff; border-bottom: 1px solid #e5e7eb;
       padding: 0 24px; display: flex; gap: 4px;
@@ -34,58 +28,37 @@
       padding: 14px 20px; border: none; background: none;
       font-size: 0.88rem; font-weight: 500; color: #6b7280;
       cursor: pointer; border-bottom: 3px solid transparent;
-      white-space: nowrap; transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
+      white-space: nowrap; transition: all 0.2s; font-family: 'Inter', sans-serif;
     }
     .tab:hover { color: #1a1a2e; }
     .tab.active { color: #0f3460; border-bottom-color: #0f3460; font-weight: 600; }
-
     .content { max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; }
-
-    .panel {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
+    .panel { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
     .card-link { text-decoration: none; color: inherit; display: block; }
     .card {
       background: #fff; border-radius: 16px; overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s; height: 100%;
     }
-    .card-link:hover .card {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }
-    .card-img {
-      height: 180px; background-size: cover; background-position: center;
-      position: relative;
-    }
+    .card-link:hover .card { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .card-img { height: 180px; background-size: cover; background-position: center; position: relative; }
     .badge {
       position: absolute; top: 12px; left: 12px;
       background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
       color: #fff; font-size: 0.72rem; font-weight: 600;
       padding: 4px 10px; border-radius: 999px; letter-spacing: 0.3px;
     }
-    .price-badge {
-      position: absolute; top: 12px; right: 12px;
-      font-size: 0.72rem; font-weight: 700;
-      padding: 4px 10px; border-radius: 999px;
-    }
+    .price-badge { position: absolute; top: 12px; right: 12px; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
     .price-free { background: #dcfce7; color: #166534; }
     .price-paid { background: #fef3c7; color: #92400e; }
-
     .card-body { padding: 18px 20px 20px; }
     .card-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
     .meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }
     .meta span { font-size: 0.78rem; color: #6b7280; }
     .card-body p { font-size: 0.88rem; color: #4b5563; line-height: 1.55; margin-bottom: 12px; }
     .cta { font-size: 0.82rem; font-weight: 600; color: #0f3460; }
-
     .no-events { grid-column: 1/-1; text-align: center; padding: 60px 0; color: #9ca3af; }
     .footer { text-align: center; font-size: 0.72rem; color: #9ca3af; padding: 0 20px 32px; }
-
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.5rem; }
       .panel { grid-template-columns: 1fr; }
@@ -99,240 +72,16 @@
     <p>Curated picks near each of our properties</p>
     <span class="date-badge">📅 March 18 – March 25, 2026</span>
   </div>
-
-  <div class="tabs-wrap">
-    <button class="tab active" onclick="switchTab('wallingford', this)">Wallingford, Seattle</button>
+  <div class="tabs-wrap"><button class="tab active" onclick="switchTab('wallingford', this)">Wallingford, Seattle</button>
 <button class="tab " onclick="switchTab('alki', this)">Alki Beach, Seattle</button>
-
-  </div>
-
-  <div class="content">
-    <div id="panel-wallingford" class="panel" style="display:grid;">
-            <a href="https://www.google.com/search?q=Wallingford+Farmers+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-                <span class="badge">🛍️ Market</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>Wallingford Farmers Market</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 21</span>
-                  <span>🕐 10am-2pm</span>
-                  <span>📍 Wallingford Center Parking Lot</span>
-                </div>
-                <p>Browse fresh produce, local crafts, and artisan goods from Pacific Northwest vendors.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Green+Lake+Spring+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-                <span class="badge">🎵 Music</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>Green Lake Spring Festival</h3>
-                <div class="meta">
-                  <span>📅 Sun Mar 22</span>
-                  <span>🕐 11am-5pm</span>
-                  <span>📍 Green Lake Park</span>
-                </div>
-                <p>Celebrate spring with live music, food trucks, and family activities around the scenic lake.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Seattle+Indie+Music+Showcase+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-                <span class="badge">🎵 Music</span>
-                <span class="price-badge price-paid">🎟️ $18 per person</span>
-              </div>
-              <div class="card-body">
-                <h3>Seattle Indie Music Showcase</h3>
-                <div class="meta">
-                  <span>📅 Fri Mar 20</span>
-                  <span>🕐 7pm-11pm</span>
-                  <span>📍 Neptune Theatre</span>
-                </div>
-                <p>Discover emerging local bands performing an eclectic mix of indie, folk, and alternative music.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Fremont+Sunday+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-                <span class="badge">🛍️ Market</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>Fremont Sunday Market</h3>
-                <div class="meta">
-                  <span>📅 Sun Mar 22</span>
-                  <span>🕐 10am-4pm</span>
-                  <span>📍 Fremont Avenue N</span>
-                </div>
-                <p>Hunt for vintage treasures, handmade jewelry, and quirky collectibles from local vendors.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Seattle+Urban+Garden+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-                <span class="badge">🍴 Food & Drink</span>
-                <span class="price-badge price-paid">🎟️ $12 per person</span>
-              </div>
-              <div class="card-body">
-                <h3>Seattle Urban Garden Tour</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 21</span>
-                  <span>🕐 9am-12pm</span>
-                  <span>📍 Multiple Wallingford Locations</span>
-                </div>
-                <p>Learn sustainable gardening tips while exploring beautiful spring gardens in the neighborhood.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Ballard+Seafood+%26+Wine+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-                <span class="badge">🍴 Food & Drink</span>
-                <span class="price-badge price-paid">🎟️ $25 per person</span>
-              </div>
-              <div class="card-body">
-                <h3>Ballard Seafood & Wine Festival</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 25</span>
-                  <span>🕐 12pm-8pm</span>
-                  <span>📍 Ballard Commons Park</span>
-                </div>
-                <p>Savor Pacific Northwest seafood paired with local wines and craft beers.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a></div>
-<div id="panel-alki" class="panel" style="display:none;">
-            <a href="https://www.google.com/search?q=Alki+Beach+Spring+Cleanup+%26+Community+Fair+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-                <span class="badge">🎵 Music</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>Alki Beach Spring Cleanup & Community Fair</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 21</span>
-                  <span>🕐 9am-12pm</span>
-                  <span>📍 Alki Beach Park</span>
-                </div>
-                <p>Join volunteers for a beach cleanup followed by local vendor booths, live music, and refreshments celebrating community stewardship.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=West+Seattle+Farmers+Market+Spring+Opening+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-                <span class="badge">🍴 Food & Drink</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>West Seattle Farmers Market Spring Opening</h3>
-                <div class="meta">
-                  <span>📅 Sun Mar 22</span>
-                  <span>🕐 10am-2pm</span>
-                  <span>📍 West Seattle Junction (California Ave SW)</span>
-                </div>
-                <p>Browse fresh local produce, artisan goods, and prepared foods from neighborhood vendors kicking off the spring season.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Seattle+Waterfront+Jazz+Series+-+Sunset+Concert+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-                <span class="badge">🎵 Music</span>
-                <span class="price-badge price-paid">🎟️ $12 per person</span>
-              </div>
-              <div class="card-body">
-                <h3>Seattle Waterfront Jazz Series - Sunset Concert</h3>
-                <div class="meta">
-                  <span>📅 Fri Mar 20</span>
-                  <span>🕐 6pm-8pm</span>
-                  <span>📍 Alki Bathhouse Theater</span>
-                </div>
-                <p>Enjoy live jazz performances from local musicians with stunning views over the sound as the sun sets.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Moonlight+Kayak+%26+Paddle+Adventure+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop')">
-                <span class="badge">🌿 Outdoors</span>
-                <span class="price-badge price-paid">🎟️ $45 per person</span>
-              </div>
-              <div class="card-body">
-                <h3>Moonlight Kayak & Paddle Adventure</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 21</span>
-                  <span>🕐 5:30pm-7:30pm</span>
-                  <span>📍 Alki Beach Water Sports Center</span>
-                </div>
-                <p>Experience the tranquility of paddling near Alki Beach under twilight skies with experienced guides.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=Discovery+Park+Spring+Wildflower+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80&fit=crop')">
-                <span class="badge">🍴 Food & Drink</span>
-                <span class="price-badge price-free">✨ Free</span>
-              </div>
-              <div class="card-body">
-                <h3>Discovery Park Spring Wildflower Walk</h3>
-                <div class="meta">
-                  <span>📅 Sun Mar 23</span>
-                  <span>🕐 10am-12pm</span>
-                  <span>📍 Discovery Park Visitor Center</span>
-                </div>
-                <p>Local naturalists guide you through blooming spring wildflowers and native plants in one of Seattle's largest parks.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a>
-            <a href="https://www.google.com/search?q=West+Seattle+Food+Truck+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="card-link">
-            <div class="card">
-              <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-                <span class="badge">🎵 Music</span>
-                <span class="price-badge price-paid">🎟️ Free (food purchased separately)</span>
-              </div>
-              <div class="card-body">
-                <h3>West Seattle Food Truck Festival</h3>
-                <div class="meta">
-                  <span>📅 Sat Mar 25</span>
-                  <span>🕐 11am-5pm</span>
-                  <span>📍 Alki Playground & Park</span>
-                </div>
-                <p>Savor cuisines from over 15 food trucks featuring everything from Korean tacos to wood-fired pizza in a lively outdoor setting.</p>
-                <span class="cta">Search for details →</span>
-              </div>
-            </div>
-            </a></div>
-
-  </div>
-
+</div>
+  <div class="content"><div id="panel-wallingford" class="panel" style="display:grid;"><div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div></div>
+<div id="panel-alki" class="panel" style="display:none;"><div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div></div>
+</div>
   <div class="footer">
     Last updated March 18, 2026 &nbsp;·&nbsp; Events subject to change — always verify with the organiser.
     Clicking an event searches Google for the latest details.
   </div>
-
   <script>
     function switchTab(id, btn) {
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
