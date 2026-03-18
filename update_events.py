@@ -122,7 +122,7 @@ def parse_events(text, source=""):
 
 def build_prompt(location_label, lat, lng, nearby, date_range, use_web_search):
     search_note = "Search the web to find real current events." if use_web_search else "Use your best knowledge of recurring and typical events in this area."
-    return f"""Find up to 20 upcoming local events for the week of {date_range} near {location_label}.
+    return f"""Find up to 20 upcoming FUN and ENTERTAINING events for TOURISTS visiting {location_label} for the week of {date_range}.
 
 {search_note}
 
@@ -130,11 +130,24 @@ Search ALL of these areas: {location_label}, {nearby}.
 CRITICAL: You MUST return a non-empty JSON array. Never return an empty list.
 If you cannot find events in one area, broaden your search to any events in the greater Seattle/Eastside metro area within 15 miles of {lat}, {lng}.
 
-Include a mix of FREE and PAID events: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, sports.
-Sort results from closest to farthest from {location_label}.
+ONLY include events a tourist would enjoy. Good examples:
+- Live music, concerts, comedy shows, theater performances
+- Food & drink festivals, night markets, restaurant events, wine/beer tastings
+- Outdoor adventures, scenic hikes, kayaking, boat tours, sightseeing
+- Art exhibitions, museum events, cultural festivals, street fairs
+- Sports games (MLB, NBA, MLS, etc.), tournaments worth watching
+- Unique local experiences visitors can't get elsewhere
+
+DO NOT include:
+- Community volunteer events, neighborhood cleanups
+- Local government or civic meetings
+- School or church events
+- Generic fitness classes or routine farmers markets unless they are destination-worthy
+
+Include a mix of FREE and PAID events. Sort results from closest to farthest from {location_label}.
 
 Return ONLY this JSON array format, nothing else, no markdown:
-[{{"name":"Event Name","date":"Sat Mar 22","time":"10am-4pm","location":"Venue, City","distance_miles":1.2,"description":"Why visitors would love this.","price":"Free"}}]"""
+[{{"name":"Event Name","date":"Sat Mar 22","time":"10am-4pm","location":"Venue, City","distance_miles":1.2,"description":"Why a tourist would love this.","price":"Free"}}]"""
 
 
 def call_api(location_label, lat, lng, nearby, date_range, use_web_search):
