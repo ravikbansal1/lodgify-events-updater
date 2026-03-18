@@ -178,8 +178,28 @@ def call_api(location_label, lat, lng, nearby, date_range, use_web_search):
         print(f"  [{location_label}] {source} HTTP status: {response.status_code}")
 
         if response.status_code == 429:
-            print(f"  [{location_label}] {source} rate limited")
-            return []
+            print(f"  [{location_label}] {source} rate limited, retrying in 30s...")
+            time.sleep(30)
+            # Retry once
+            response = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": ANTHROPIC_API_KEY,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json",
+                },
+                json={
+                    "model": "claude-haiku-4-5-20251001",
+                    "max_tokens": 4000,
+                    "messages": [{"role": "user", "content": build_prompt(
+                        location_label, lat, lng, nearby, date_range, False
+                    )}],
+                },
+                timeout=timeout,
+            )
+            print(f"  [{location_label}] {source} retry status: {response.status_code}")
+            if response.status_code != 200:
+                return []
 
         response.raise_for_status()
         data = response.json()
@@ -385,18 +405,18 @@ def build_html(all_events):
 def main():
     all_events = {}
 
-    # Fetch all 3 locations in parallel (max 3 threads)
-    print("Fetching events for all locations in parallel...")
-    with ThreadPoolExecutor(max_workers=3) as executor:
-        futures = {executor.submit(fetch_events_for_location, loc): loc for loc in LOCATIONS}
-        for future in as_completed(futures):
-            loc = futures[future]
-            try:
-                events = future.result()
-                all_events[loc["id"]] = events
-            except Exception as e:
-                print(f"  [{loc['label']}] Unhandled error: {e}")
-                all_events[loc["id"]] = []
+    # Fetch locations sequentially with a delay to avoid rate limits
+    print("Fetching events for all locations...")
+    for i, loc in enumerate(LOCATIONS):
+        if i > 0:
+            print(f"  Waiting 20s before next location to avoid rate limits...")
+            time.sleep(20)
+        try:
+            events = fetch_events_for_location(loc)
+            all_events[loc["id"]] = events
+        except Exception as e:
+            print(f"  [{loc['label']}] Unhandled error: {e}")
+            all_events[loc["id"]] = []
 
     print("\nBuilding HTML...")
     html = build_html(all_events)
