@@ -6,13 +6,13 @@ on:
     - cron: "0 8 * * 1"
   workflow_dispatch:
 
-# Required for GitHub Pages deployment
 permissions:
   contents: write
 
 jobs:
   update-events:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Hard cap — kills job after 10 mins no matter what
 
     steps:
       - name: Checkout repository
