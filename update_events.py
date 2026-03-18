@@ -167,10 +167,9 @@ def call_api(location_label, lat, lng, nearby, date_range, use_web_search):
             },
             json={
                 "model": "claude-haiku-4-5-20251001",
-                "max_tokens": 6000,
-                **({"tools": tools} if tools else {}),
+                "max_tokens": 4000,
                 "messages": [{"role": "user", "content": build_prompt(
-                    location_label, lat, lng, nearby, date_range, use_web_search
+                    location_label, lat, lng, nearby, date_range, False
                 )}],
             },
             timeout=timeout,
@@ -216,43 +215,18 @@ def fetch_events_for_location(loc):
     print(f"\n{'='*50}")
     print(f"Fetching events for {label}...")
 
-    web_events = []
-    kb_events  = []
-
-    # Run both calls in parallel
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        web_future = executor.submit(call_api, label, lat, lng, nearby, date_range, True)
-        kb_future  = executor.submit(call_api, label, lat, lng, nearby, date_range, False)
-
-        try:
-            web_events = web_future.result(timeout=WEB_SEARCH_TIMEOUT + 10)
-        except Exception as e:
-            print(f"  [{label}] web future error: {e}")
-
-        try:
-            kb_events = kb_future.result(timeout=FALLBACK_TIMEOUT + 10)
-        except Exception as e:
-            print(f"  [{label}] kb future error: {e}")
-
-    # Merge, deduplicate by name, sort by distance
-    combined     = list(web_events)
-    seen_names   = {e.get("name", "").lower() for e in combined}
-
-    for e in kb_events:
-        name = e.get("name", "").lower()
-        if name and name not in seen_names:
-            combined.append(e)
-            seen_names.add(name)
+    # Single knowledge-based call per location (no web search — cost efficient)
+    events = call_api(label, lat, lng, nearby, date_range, False)
 
     def safe_dist(e):
         try:
             return float(e.get("distance_miles") or 99)
         except (ValueError, TypeError):
             return 99.0
-    combined.sort(key=safe_dist)
-    result = combined[:20]
+    events.sort(key=safe_dist)
+    result = events[:20]
 
-    print(f"  [{label}] Final: {len(web_events)} web + {len(kb_events)} kb = {len(result)} merged events")
+    print(f"  [{label}] Final: {len(result)} events")
     return result
 
 
