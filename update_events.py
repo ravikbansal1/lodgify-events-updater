@@ -79,11 +79,16 @@ def make_search_url(event_name, location_label):
 def parse_events(text):
     """Extract and parse JSON array from Claude response."""
     clean = re.sub(r"```json|```", "", text).strip()
-    match = re.search(r"\[.*?\]", clean, re.DOTALL)
-    if match:
-        events = json.loads(match.group(0))
-        if isinstance(events, list) and len(events) > 0:
-            return events
+    # Find the FIRST '[' and LAST ']' to capture the full array
+    start = clean.find("[")
+    end   = clean.rfind("]")
+    if start != -1 and end != -1 and end > start:
+        try:
+            events = json.loads(clean[start:end+1])
+            if isinstance(events, list) and len(events) > 0:
+                return events
+        except json.JSONDecodeError:
+            pass
     return []
 
 def build_prompt(location_label, date_range):
