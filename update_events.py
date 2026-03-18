@@ -1,6 +1,6 @@
 """
 Weekly Local Events Updater
-Fetches events for 2 Seattle locations via Claude AI
+Fetches events for 2 Seattle locations via Claude AI (web search with fallback)
 and generates a beautiful static index.html hosted via GitHub Pages.
 """
 
@@ -20,7 +20,8 @@ LOCATIONS = [
     {"id": "alki",         "label": "Alki Beach, Seattle"},
 ]
 
-API_TIMEOUT = 45
+WEB_SEARCH_TIMEOUT  = 120   # 2 minutes max for web search attempt
+FALLBACK_TIMEOUT    = 45    # 45 seconds for fallback (no web search)
 
 CATEGORY_PHOTOS = {
     "music":    "photo-1493225457124-a3eb161ffa5f",
@@ -71,17 +72,21 @@ def get_category_label(event_name, description):
     return ("📍", "Local Event")
 
 def make_search_url(event_name, location_label):
-    """Always-working Google search URL for the event."""
     query = f"{event_name} {location_label} event"
     return f"https://www.google.com/search?q={quote_plus(query)}"
 
+def parse_events(text):
+    """Extract and parse JSON array from Claude response."""
+    clean = re.sub(r"```json|```", "", text).strip()
+    match = re.search(r"\[.*?\]", clean, re.DOTALL)
+    if match:
+        events = json.loads(match.group(0))
+        if isinstance(events, list) and len(events) > 0:
+            return events
+    return []
 
-def fetch_events_for_location(location_label):
-    today      = datetime.now()
-    week_ahead = today + timedelta(days=7)
-    date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
-
-    prompt = f"""Find 6 upcoming local events near {location_label} for the week of {date_range}.
+def build_prompt(location_label, date_range):
+    return f"""Find 6 upcoming local events near {location_label} for the week of {date_range}.
 Include a mix of FREE and PAID events. Include variety: festivals, markets, concerts, outdoor activities, food events.
 Return ONLY a JSON array, no other text:
 [{{
@@ -92,53 +97,93 @@ Return ONLY a JSON array, no other text:
   "description": "One engaging sentence about why visitors would love this.",
   "price": "Free" or "$15 per person"
 }}]
-Do not include any URLs — only the fields above. Return ONLY the JSON array."""
+Do not include any URLs. Return ONLY the JSON array."""
 
-    for attempt in range(2):
-        try:
-            print(f"  API call attempt {attempt + 1}...")
-            response = requests.post(
-                "https://api.anthropic.com/v1/messages",
-                headers={
-                    "x-api-key": ANTHROPIC_API_KEY,
-                    "anthropic-version": "2023-06-01",
-                    "content-type": "application/json",
-                },
-                json={
-                    "model": "claude-haiku-4-5-20251001",
-                    "max_tokens": 1500,
-                    "messages": [{"role": "user", "content": prompt}],
-                },
-                timeout=API_TIMEOUT,
-            )
 
-            if response.status_code == 429:
-                print(f"  Rate limited. Waiting 60s...")
-                time.sleep(60)
-                continue
+def fetch_with_web_search(location_label, date_range):
+    """Try fetching events using live web search (2 min timeout)."""
+    print(f"  Trying web search...")
+    response = requests.post(
+        "https://api.anthropic.com/v1/messages",
+        headers={
+            "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        json={
+            "model": "claude-haiku-4-5-20251001",
+            "max_tokens": 1500,
+            "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+            "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
+        },
+        timeout=WEB_SEARCH_TIMEOUT,
+    )
+    response.raise_for_status()
+    data = response.json()
+    text = ""
+    for block in data.get("content", []):
+        if block.get("type") == "text":
+            text = block["text"]
+    return parse_events(text)
 
-            response.raise_for_status()
-            data = response.json()
-            text = ""
-            for block in data.get("content", []):
-                if block.get("type") == "text":
-                    text = block["text"]
 
-            clean = re.sub(r"```json|```", "", text).strip()
-            match = re.search(r"\[.*?\]", clean, re.DOTALL)
-            if match:
-                events = json.loads(match.group(0))
-                if isinstance(events, list) and len(events) > 0:
-                    return events
+def fetch_with_fallback(location_label, date_range):
+    """Fallback: fetch events using Claude's knowledge only (no web search)."""
+    print(f"  Using knowledge fallback...")
+    response = requests.post(
+        "https://api.anthropic.com/v1/messages",
+        headers={
+            "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        json={
+            "model": "claude-haiku-4-5-20251001",
+            "max_tokens": 1500,
+            "messages": [{"role": "user", "content": build_prompt(location_label, date_range)}],
+        },
+        timeout=FALLBACK_TIMEOUT,
+    )
+    response.raise_for_status()
+    data = response.json()
+    text = ""
+    for block in data.get("content", []):
+        if block.get("type") == "text":
+            text = block["text"]
+    return parse_events(text)
 
-        except requests.exceptions.Timeout:
-            print(f"  Timed out on attempt {attempt + 1}")
-        except json.JSONDecodeError as e:
-            print(f"  JSON error on attempt {attempt + 1}: {e}")
-        except Exception as e:
-            print(f"  Error on attempt {attempt + 1}: {e}")
 
-        time.sleep(10)
+def fetch_events_for_location(location_label):
+    today      = datetime.now()
+    week_ahead = today + timedelta(days=7)
+    date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
+
+    # ── Attempt 1: Web search (live results) ─────────────────────────────────
+    try:
+        events = fetch_with_web_search(location_label, date_range)
+        if events:
+            print(f"  ✅ Web search succeeded ({len(events)} events)")
+            return events
+        print(f"  ⚠️  Web search returned no events, falling back...")
+    except requests.exceptions.Timeout:
+        print(f"  ⏱️  Web search timed out after {WEB_SEARCH_TIMEOUT}s, falling back...")
+    except requests.exceptions.HTTPError as e:
+        if e.response.status_code == 429:
+            print(f"  Rate limited, waiting 60s then falling back...")
+            time.sleep(60)
+        else:
+            print(f"  HTTP error: {e}, falling back...")
+    except Exception as e:
+        print(f"  Web search error: {e}, falling back...")
+
+    # ── Attempt 2: Knowledge fallback ────────────────────────────────────────
+    try:
+        events = fetch_with_fallback(location_label, date_range)
+        if events:
+            print(f"  ✅ Fallback succeeded ({len(events)} events)")
+            return events
+    except Exception as e:
+        print(f"  Fallback also failed: {e}")
 
     return []
 
@@ -167,8 +212,6 @@ def build_html(all_events):
                 photo_url  = get_photo_url(e.get("name", ""), e.get("description", ""))
                 icon, cat  = get_category_label(e.get("name", ""), e.get("description", ""))
                 search_url = make_search_url(e.get("name", ""), loc["label"])
-
-                # Price badge
                 price      = e.get("price", "")
                 is_free    = price.strip().lower() in ("free", "free!")
                 price_html = ""
@@ -176,7 +219,6 @@ def build_html(all_events):
                     price_class = "price-free" if is_free else "price-paid"
                     price_label = "✨ Free" if is_free else f"🎟️ {price}"
                     price_html  = f'<span class="price-badge {price_class}">{price_label}</span>'
-
                 time_str = f'<span>🕐 {e["time"]}</span>' if e.get("time") else ""
                 loc_str  = f'<span>📍 {e["location"]}</span>' if e.get("location") else ""
 
@@ -212,23 +254,17 @@ def build_html(all_events):
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{ font-family: 'Inter', sans-serif; background: #f8f9fb; color: #1a1a2e; }}
-
     .hero {{
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: #fff;
-      padding: 48px 24px 40px;
-      text-align: center;
+      color: #fff; padding: 48px 24px 40px; text-align: center;
     }}
     .hero h1 {{ font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }}
     .hero p {{ font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 4px; }}
     .date-badge {{
-      display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 16px; border-radius: 999px;
-      font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 12px;
+      display: inline-block; background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px;
+      border-radius: 999px; font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 12px;
     }}
-
     .tabs-wrap {{
       background: #fff; border-bottom: 1px solid #e5e7eb;
       padding: 0 24px; display: flex; gap: 4px;
@@ -238,58 +274,37 @@ def build_html(all_events):
       padding: 14px 20px; border: none; background: none;
       font-size: 0.88rem; font-weight: 500; color: #6b7280;
       cursor: pointer; border-bottom: 3px solid transparent;
-      white-space: nowrap; transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
+      white-space: nowrap; transition: all 0.2s; font-family: 'Inter', sans-serif;
     }}
     .tab:hover {{ color: #1a1a2e; }}
     .tab.active {{ color: #0f3460; border-bottom-color: #0f3460; font-weight: 600; }}
-
     .content {{ max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; }}
-
-    .panel {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }}
-
+    .panel {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }}
     .card-link {{ text-decoration: none; color: inherit; display: block; }}
     .card {{
       background: #fff; border-radius: 16px; overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s; height: 100%;
     }}
-    .card-link:hover .card {{
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }}
-    .card-img {{
-      height: 180px; background-size: cover; background-position: center;
-      position: relative;
-    }}
+    .card-link:hover .card {{ transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }}
+    .card-img {{ height: 180px; background-size: cover; background-position: center; position: relative; }}
     .badge {{
       position: absolute; top: 12px; left: 12px;
       background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
       color: #fff; font-size: 0.72rem; font-weight: 600;
       padding: 4px 10px; border-radius: 999px; letter-spacing: 0.3px;
     }}
-    .price-badge {{
-      position: absolute; top: 12px; right: 12px;
-      font-size: 0.72rem; font-weight: 700;
-      padding: 4px 10px; border-radius: 999px;
-    }}
+    .price-badge {{ position: absolute; top: 12px; right: 12px; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }}
     .price-free {{ background: #dcfce7; color: #166534; }}
     .price-paid {{ background: #fef3c7; color: #92400e; }}
-
     .card-body {{ padding: 18px 20px 20px; }}
     .card-body h3 {{ font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }}
     .meta {{ display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }}
     .meta span {{ font-size: 0.78rem; color: #6b7280; }}
     .card-body p {{ font-size: 0.88rem; color: #4b5563; line-height: 1.55; margin-bottom: 12px; }}
     .cta {{ font-size: 0.82rem; font-weight: 600; color: #0f3460; }}
-
     .no-events {{ grid-column: 1/-1; text-align: center; padding: 60px 0; color: #9ca3af; }}
     .footer {{ text-align: center; font-size: 0.72rem; color: #9ca3af; padding: 0 20px 32px; }}
-
     @media (max-width: 600px) {{
       .hero h1 {{ font-size: 1.5rem; }}
       .panel {{ grid-template-columns: 1fr; }}
@@ -303,20 +318,12 @@ def build_html(all_events):
     <p>Curated picks near each of our properties</p>
     <span class="date-badge">📅 {date_range}</span>
   </div>
-
-  <div class="tabs-wrap">
-    {tabs_html}
-  </div>
-
-  <div class="content">
-    {panels_html}
-  </div>
-
+  <div class="tabs-wrap">{tabs_html}</div>
+  <div class="content">{panels_html}</div>
   <div class="footer">
     Last updated {updated} &nbsp;·&nbsp; Events subject to change — always verify with the organiser.
     Clicking an event searches Google for the latest details.
   </div>
-
   <script>
     function switchTab(id, btn) {{
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
@@ -335,15 +342,15 @@ def main():
 
     for i, loc in enumerate(LOCATIONS):
         if i > 0:
-            print("  Waiting 15s between calls...")
+            print("  Waiting 15s between locations...")
             time.sleep(15)
 
-        print(f"Fetching events for {loc['label']}...")
+        print(f"\nFetching events for {loc['label']}...")
         events = fetch_events_for_location(loc["label"])
         all_events[loc["id"]] = events
-        print(f"  Found {len(events)} events")
+        print(f"  Total: {len(events)} events")
 
-    print("Building HTML...")
+    print("\nBuilding HTML...")
     html = build_html(all_events)
 
     os.makedirs("docs", exist_ok=True)
