@@ -231,7 +231,12 @@ def fetch_events_for_location(loc):
             combined.append(e)
             seen_names.add(name)
 
-    combined.sort(key=lambda e: float(e.get("distance_miles") or 99))
+    def safe_dist(e):
+        try:
+            return float(e.get("distance_miles") or 99)
+        except (ValueError, TypeError):
+            return 99.0
+    combined.sort(key=safe_dist)
     result = combined[:20]
 
     print(f"  [{label}] Final: {len(web_events)} web + {len(kb_events)} kb = {len(result)} merged events")
