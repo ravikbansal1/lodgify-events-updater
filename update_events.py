@@ -1,7 +1,7 @@
 """
 Weekly Local Events Updater
-Fetches events for 2 Seattle locations via Claude AI (web search with fallback)
-and generates a beautiful static index.html hosted via GitHub Pages.
+Fetches events for 3 locations in parallel using threads.
+Web search + knowledge fallback run simultaneously per location.
 """
 
 import os
@@ -9,8 +9,10 @@ import json
 import time
 import re
 import requests
+import threading
 from datetime import datetime, timedelta
 from urllib.parse import quote_plus
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -19,22 +21,22 @@ LOCATIONS = [
     {
         "id": "wallingford", "label": "Wallingford, Seattle",
         "lat": 47.6535, "lng": -122.3366,
-        "nearby": "Fremont, Capitol Hill, Queen Anne, South Lake Union, University District, Seattle"
+        "nearby": "Fremont, Capitol Hill, Queen Anne, South Lake Union, University District, Seattle downtown"
     },
     {
         "id": "alki", "label": "Alki Beach, Seattle",
         "lat": 47.5884, "lng": -122.3949,
-        "nearby": "West Seattle, Burien, White Center, SoDo, Georgetown, Pioneer Square, Seattle"
+        "nearby": "West Seattle, Burien, White Center, SoDo, Georgetown, Pioneer Square, downtown Seattle"
     },
     {
         "id": "lake_hills", "label": "Lake Hills, Bellevue",
         "lat": 47.5990, "lng": -122.1389,
-        "nearby": "Bellevue, Redmond, Kirkland, Issaquah, Sammamish, Mercer Island, Eastside Seattle"
+        "nearby": "Bellevue downtown, Redmond, Kirkland, Issaquah, Sammamish, Mercer Island, Eastside"
     },
 ]
 
-WEB_SEARCH_TIMEOUT  = 120   # 2 minutes max for web search attempt
-FALLBACK_TIMEOUT    = 45    # 45 seconds for fallback (no web search)
+WEB_SEARCH_TIMEOUT = 90
+FALLBACK_TIMEOUT   = 45
 
 CATEGORY_PHOTOS = {
     "music":    "photo-1493225457124-a3eb161ffa5f",
@@ -88,140 +90,152 @@ def make_search_url(event_name, location_label):
     query = f"{event_name} {location_label} event"
     return f"https://www.google.com/search?q={quote_plus(query)}"
 
-def parse_events(text):
-    """Extract and parse JSON array from Claude response."""
+def parse_events(text, source=""):
+    """Robustly extract JSON array from Claude response."""
+    if not text or not text.strip():
+        print(f"    [{source}] Empty response text")
+        return []
+
+    print(f"    [{source}] Raw response length: {len(text)} chars")
+    print(f"    [{source}] First 300 chars: {text[:300]}")
+
     clean = re.sub(r"```json|```", "", text).strip()
-    # Find the FIRST '[' and LAST ']' to capture the full array
     start = clean.find("[")
     end   = clean.rfind("]")
-    if start != -1 and end != -1 and end > start:
-        try:
-            events = json.loads(clean[start:end+1])
-            if isinstance(events, list) and len(events) > 0:
-                return events
-        except json.JSONDecodeError:
-            pass
+
+    if start == -1 or end == -1 or end <= start:
+        print(f"    [{source}] No JSON array found in response")
+        return []
+
+    try:
+        events = json.loads(clean[start:end + 1])
+        if isinstance(events, list):
+            print(f"    [{source}] Parsed {len(events)} events ✅")
+            return events
+        print(f"    [{source}] Parsed JSON but not a list: {type(events)}")
+    except json.JSONDecodeError as e:
+        print(f"    [{source}] JSON decode error: {e}")
+        print(f"    [{source}] Attempted to parse: {clean[start:start+200]}...")
+
     return []
 
-def build_prompt(location_label, lat, lng, nearby, date_range):
-    return f"""Find as many upcoming local events as possible (up to 20) for the week of {date_range} near {location_label}.
 
-Search ALL of these areas within 15 miles: {nearby}.
-Cast a wide net — include events in every neighborhood and city listed above.
-IMPORTANT: Never return an empty list. If you cannot find events in one area, search the others.
-Include a mix of FREE and PAID events: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, sports — anything a visiting guest would enjoy.
-For each event estimate the distance in miles from {location_label} ({lat}, {lng}) and sort closest to farthest.
+def build_prompt(location_label, lat, lng, nearby, date_range, use_web_search):
+    search_note = "Search the web to find real current events." if use_web_search else "Use your best knowledge of recurring and typical events in this area."
+    return f"""Find up to 20 upcoming local events for the week of {date_range} near {location_label}.
 
-Return ONLY a JSON array, no other text:
-[{{
-  "name": "Event Name",
-  "date": "Sat Mar 22",
-  "time": "10am-4pm",
-  "location": "Venue Name, City",
-  "distance_miles": 1.2,
-  "description": "One engaging sentence about why visitors would love this.",
-  "price": "Free" or "$15 per person"
-}}]
-Do not include any URLs. Return ONLY the JSON array."""
+{search_note}
+
+Search ALL of these areas: {location_label}, {nearby}.
+CRITICAL: You MUST return a non-empty JSON array. Never return an empty list.
+If you cannot find events in one area, broaden your search to any events in the greater Seattle/Eastside metro area within 15 miles of {lat}, {lng}.
+
+Include a mix of FREE and PAID events: festivals, markets, concerts, outdoor activities, food events, community gatherings, art shows, classes, tours, sports.
+Sort results from closest to farthest from {location_label}.
+
+Return ONLY this JSON array format, nothing else, no markdown:
+[{{"name":"Event Name","date":"Sat Mar 22","time":"10am-4pm","location":"Venue, City","distance_miles":1.2,"description":"Why visitors would love this.","price":"Free"}}]"""
 
 
-def fetch_with_web_search(location_label, lat, lng, nearby, date_range):
-    """Try fetching events using live web search (2 min timeout)."""
-    print(f"  Trying web search...")
-    response = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 6000,
-            "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, nearby, date_range)}],
-        },
-        timeout=WEB_SEARCH_TIMEOUT,
-    )
-    response.raise_for_status()
-    data = response.json()
-    text = ""
-    for block in data.get("content", []):
-        if block.get("type") == "text":
-            text = block["text"]
-    return parse_events(text)
+def call_api(location_label, lat, lng, nearby, date_range, use_web_search):
+    """Single API call — web search or knowledge only."""
+    source = "web" if use_web_search else "kb"
+    tools  = [{"type": "web_search_20250305", "name": "web_search"}] if use_web_search else []
+    timeout = WEB_SEARCH_TIMEOUT if use_web_search else FALLBACK_TIMEOUT
 
-
-def fetch_with_fallback(location_label, lat, lng, nearby, date_range):
-    """Fallback: fetch events using Claude's knowledge only (no web search)."""
-    print(f"  Using knowledge fallback...")
-    response = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 6000,
-            "messages": [{"role": "user", "content": build_prompt(location_label, lat, lng, nearby, date_range)}],
-        },
-        timeout=FALLBACK_TIMEOUT,
-    )
-    response.raise_for_status()
-    data = response.json()
-    text = ""
-    for block in data.get("content", []):
-        if block.get("type") == "text":
-            text = block["text"]
-    return parse_events(text)
-
-
-def fetch_events_for_location(location_label, lat, lng, nearby):
-    today      = datetime.now()
-    week_ahead = today + timedelta(days=7)
-    date_range = f"{today.strftime('%B %d')} - {week_ahead.strftime('%B %d, %Y')}"
-
-    # ── Attempt 1: Web search (live results) ─────────────────────────────────
-    web_events = []
+    print(f"  [{location_label}] Starting {source} call...")
     try:
-        web_events = fetch_with_web_search(location_label, lat, lng, nearby, date_range)
-        if web_events:
-            print(f"  ✅ Web search succeeded ({len(web_events)} events)")
-        else:
-            print(f"  ⚠️  Web search returned no events, falling back...")
+        response = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": "claude-haiku-4-5-20251001",
+                "max_tokens": 6000,
+                **({"tools": tools} if tools else {}),
+                "messages": [{"role": "user", "content": build_prompt(
+                    location_label, lat, lng, nearby, date_range, use_web_search
+                )}],
+            },
+            timeout=timeout,
+        )
+
+        print(f"  [{location_label}] {source} HTTP status: {response.status_code}")
+
+        if response.status_code == 429:
+            print(f"  [{location_label}] {source} rate limited")
+            return []
+
+        response.raise_for_status()
+        data = response.json()
+
+        # Log stop reason
+        stop_reason = data.get("stop_reason", "unknown")
+        print(f"  [{location_label}] {source} stop_reason: {stop_reason}")
+
+        text = ""
+        for block in data.get("content", []):
+            if block.get("type") == "text":
+                text += block["text"]
+
+        return parse_events(text, source=f"{location_label}/{source}")
+
     except requests.exceptions.Timeout:
-        print(f"  ⏱️  Web search timed out after {WEB_SEARCH_TIMEOUT}s, falling back...")
-    except requests.exceptions.HTTPError as e:
-        if e.response.status_code == 429:
-            print(f"  Rate limited, waiting 60s then falling back...")
-            time.sleep(60)
-        else:
-            print(f"  HTTP error: {e}, falling back...")
+        print(f"  [{location_label}] {source} timed out after {timeout}s")
+        return []
     except Exception as e:
-        print(f"  Web search error: {e}, falling back...")
+        print(f"  [{location_label}] {source} error: {e}")
+        return []
 
-    # ── Attempt 2: Knowledge fallback (always runs if web search got < 8 events) ──
-    if len(web_events) < 8:
+
+def fetch_events_for_location(loc):
+    """Run web search + knowledge fallback in parallel, merge results."""
+    label    = loc["label"]
+    lat      = loc["lat"]
+    lng      = loc["lng"]
+    nearby   = loc["nearby"]
+    today    = datetime.now()
+    date_range = f"{today.strftime('%B %d')} - {(today + timedelta(days=7)).strftime('%B %d, %Y')}"
+
+    print(f"\n{'='*50}")
+    print(f"Fetching events for {label}...")
+
+    web_events = []
+    kb_events  = []
+
+    # Run both calls in parallel
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        web_future = executor.submit(call_api, label, lat, lng, nearby, date_range, True)
+        kb_future  = executor.submit(call_api, label, lat, lng, nearby, date_range, False)
+
         try:
-            print(f"  Running knowledge fallback to supplement results...")
-            fb_events = fetch_with_fallback(location_label, lat, lng, nearby, date_range)
-            if fb_events:
-                print(f"  ✅ Fallback got {len(fb_events)} events")
-                # Merge: add fallback events not already in web results (by name)
-                existing_names = {e.get("name", "").lower() for e in web_events}
-                for e in fb_events:
-                    if e.get("name", "").lower() not in existing_names:
-                        web_events.append(e)
-                        existing_names.add(e.get("name", "").lower())
-                print(f"  ✅ Combined total: {len(web_events)} events")
+            web_events = web_future.result(timeout=WEB_SEARCH_TIMEOUT + 10)
         except Exception as e:
-            print(f"  Fallback error: {e}")
+            print(f"  [{label}] web future error: {e}")
 
-    # Re-sort combined list by distance
-    web_events.sort(key=lambda e: float(e.get("distance_miles") or 99))
-    return web_events[:20]
+        try:
+            kb_events = kb_future.result(timeout=FALLBACK_TIMEOUT + 10)
+        except Exception as e:
+            print(f"  [{label}] kb future error: {e}")
+
+    # Merge, deduplicate by name, sort by distance
+    combined     = list(web_events)
+    seen_names   = {e.get("name", "").lower() for e in combined}
+
+    for e in kb_events:
+        name = e.get("name", "").lower()
+        if name and name not in seen_names:
+            combined.append(e)
+            seen_names.add(name)
+
+    combined.sort(key=lambda e: float(e.get("distance_miles") or 99))
+    result = combined[:20]
+
+    print(f"  [{label}] Final: {len(web_events)} web + {len(kb_events)} kb = {len(result)} merged events")
+    return result
 
 
 def build_html(all_events):
@@ -245,17 +259,17 @@ def build_html(all_events):
             cards = '<div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div>'
         else:
             for e in events:
-                photo_url  = get_photo_url(e.get("name", ""), e.get("description", ""))
-                icon, cat  = get_category_label(e.get("name", ""), e.get("description", ""))
-                search_url = make_search_url(e.get("name", ""), loc["label"])
-                price      = e.get("price", "")
-                is_free    = price.strip().lower() in ("free", "free!")
-                price_html = ""
+                photo_url    = get_photo_url(e.get("name", ""), e.get("description", ""))
+                icon, cat    = get_category_label(e.get("name", ""), e.get("description", ""))
+                search_url   = make_search_url(e.get("name", ""), loc["label"])
+                price        = e.get("price", "")
+                is_free      = price.strip().lower() in ("free", "free!")
+                price_html   = ""
                 if price:
                     price_class = "price-free" if is_free else "price-paid"
                     price_label = "✨ Free" if is_free else f"🎟️ {price}"
                     price_html  = f'<span class="price-badge {price_class}">{price_label}</span>'
-                time_str = f'<span>🕐 {e["time"]}</span>' if e.get("time") else ""
+                time_str     = f'<span>🕐 {e["time"]}</span>' if e.get("time") else ""
                 loc_str      = f'<span>📍 {e["location"]}</span>' if e.get("location") else ""
                 dist         = e.get("distance_miles")
                 distance_str = f'<span>📏 {dist} mi away</span>' if dist else ""
@@ -379,15 +393,18 @@ def build_html(all_events):
 def main():
     all_events = {}
 
-    for i, loc in enumerate(LOCATIONS):
-        if i > 0:
-            print("  Waiting 15s between locations...")
-            time.sleep(15)
-
-        print(f"\nFetching events for {loc['label']}...")
-        events = fetch_events_for_location(loc["label"], loc["lat"], loc["lng"], loc["nearby"])
-        all_events[loc["id"]] = events
-        print(f"  Total: {len(events)} events")
+    # Fetch all 3 locations in parallel (max 3 threads)
+    print("Fetching events for all locations in parallel...")
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(fetch_events_for_location, loc): loc for loc in LOCATIONS}
+        for future in as_completed(futures):
+            loc = futures[future]
+            try:
+                events = future.result()
+                all_events[loc["id"]] = events
+            except Exception as e:
+                print(f"  [{loc['label']}] Unhandled error: {e}")
+                all_events[loc["id"]] = []
 
     print("\nBuilding HTML...")
     html = build_html(all_events)
@@ -396,7 +413,11 @@ def main():
     with open("docs/index.html", "w", encoding="utf-8") as f:
         f.write(html)
 
-    print("Done! docs/index.html updated.")
+    for loc in LOCATIONS:
+        count = len(all_events.get(loc["id"], []))
+        print(f"  {loc['label']}: {count} events")
+
+    print("\nDone! docs/index.html updated.")
 
 
 if __name__ == "__main__":
