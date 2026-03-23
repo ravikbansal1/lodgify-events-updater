@@ -94,15 +94,18 @@ No markdown, no explanation. JSON array only."""
 
         events = json.loads(clean[s:e+1])
         # Sort by date
-        from datetime import datetime
+        import calendar
+        MONTHS = {m[:3].lower(): i for i, m in enumerate(calendar.month_abbr) if m}
+        DAYS   = {d[:3].lower(): i for i, d in enumerate(calendar.day_abbr) if d}
         def parse_date(e):
-            try:
-                return datetime.strptime(e.get("date","").strip(), "%a %b %d")
-            except:
-                try:
-                    return datetime.strptime(e.get("date","").strip(), "%A %B %d")
-                except:
-                    return datetime.max
+            raw = e.get("date", "").strip().lower()
+            for abbr, num in MONTHS.items():
+                if abbr in raw:
+                    import re as _re
+                    day_match = _re.search(r"\d+", raw)
+                    day = int(day_match.group()) if day_match else 99
+                    return (num, day)
+            return (99, 99)
         events.sort(key=parse_date)
         print(f"  Got {len(events)} events ✅", flush=True)
         return events[:50]
