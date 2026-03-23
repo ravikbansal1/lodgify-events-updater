@@ -1,9 +1,9 @@
-name: Weekly Local Events Update
+name: Monthly Local Events Update
 
 on:
   schedule:
-    # Every Monday at 8:00 AM UTC
-    - cron: "0 8 * * 1"
+    # Runs on the 1st of every month at 8:00 AM UTC
+    - cron: "0 8 1 * *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +12,7 @@ permissions:
 jobs:
   update-events:
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # Hard cap — kills job after 10 mins no matter what
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -39,5 +39,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/index.html
-          git diff --staged --quiet || git commit -m "Weekly events update $(date +'%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "Monthly events update $(date +'%B %Y')"
           git push
