@@ -34,7 +34,7 @@ LOCATIONS = [
     },
 ]
 
-FALLBACK_TIMEOUT = 60
+FALLBACK_TIMEOUT = 45
 
 CATEGORY_PHOTOS = {
     "music":    "photo-1493225457124-a3eb161ffa5f",
@@ -160,7 +160,7 @@ def fetch_events_for_location(loc):
 
     for attempt in range(3):
         if attempt > 0:
-            wait = 30 * attempt
+            wait = 10 * attempt
             print(f"  Retry {attempt} — waiting {wait}s...")
             time.sleep(wait)
 
@@ -540,8 +540,8 @@ def main():
 
     for i, loc in enumerate(LOCATIONS):
         if i > 0:
-            print(f"\n  Waiting 25s before next location...")
-            time.sleep(25)
+            print(f"\n  Waiting 10s before next location...")
+            time.sleep(10)
 
         events = fetch_events_for_location(loc)
         all_events[loc["id"]] = events
