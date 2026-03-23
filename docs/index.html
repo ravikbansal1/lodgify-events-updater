@@ -3,95 +3,269 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Local Events This Week</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <title>Local Events — March 2026 | NestInLux</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
+    /* ── Reset & Base ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f8f9fb; color: #1a1a2e; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f7f4;
+      color: #1c1812;
+    }
+
+    /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: #fff; padding: 48px 24px 40px; text-align: center;
+      background: linear-gradient(160deg, #1c1812 0%, #2d2418 55%, #3d3020 100%);
+      color: #f9f7f4;
+      padding: 52px 24px 44px;
+      text-align: center;
     }
-    .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .hero p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
-    .date-badge {
-      display: inline-block; background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px;
-      border-radius: 999px; font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 12px;
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #b8965a;
+      margin-bottom: 12px;
     }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #f9f7f4;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+    .hero p {
+      font-size: 0.9rem;
+      color: rgba(249,247,244,0.6);
+      margin-bottom: 18px;
+    }
+    .month-pill {
+      display: inline-block;
+      background: rgba(184,150,90,0.18);
+      border: 1px solid rgba(184,150,90,0.4);
+      color: #d4a96a;
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Tabs ── */
     .tabs-wrap {
-      background: #fff; border-bottom: 1px solid #e5e7eb;
-      padding: 0 24px; display: flex; gap: 4px;
-      overflow-x: auto; justify-content: center;
+      background: #fff;
+      border-bottom: 1px solid #e8e0d5;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      overflow-x: auto;
+      padding: 0 16px;
     }
     .tab {
-      padding: 14px 20px; border: none; background: none;
-      font-size: 0.88rem; font-weight: 500; color: #6b7280;
-      cursor: pointer; border-bottom: 3px solid transparent;
-      white-space: nowrap; transition: all 0.2s; font-family: 'Inter', sans-serif;
+      font-family: 'Inter', sans-serif;
+      padding: 16px 24px;
+      border: none;
+      background: none;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: #8a7f72;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .tab:hover { color: #1a1a2e; }
-    .tab.active { color: #0f3460; border-bottom-color: #0f3460; font-weight: 600; }
-    .content { max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; }
-    .panel { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .tab:hover { color: #1c1812; }
+    .tab.active {
+      color: #1c1812;
+      border-bottom-color: #b8965a;
+      font-weight: 600;
+    }
+    .tab-count {
+      background: #f0ebe3;
+      color: #8a7f72;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+    .tab.active .tab-count {
+      background: #b8965a;
+      color: #fff;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 36px 20px 56px;
+    }
+
+    /* ── Grid ── */
+    .panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── Card ── */
     .card-link { text-decoration: none; color: inherit; display: block; }
     .card {
-      background: #fff; border-radius: 16px; overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s; height: 100%;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e8e0d5;
+      box-shadow: 0 1px 4px rgba(28,24,18,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
     }
-    .card-link:hover .card { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
-    .card-img { height: 180px; background-size: cover; background-position: center; position: relative; }
-    .badge {
-      position: absolute; top: 12px; left: 12px;
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
-      color: #fff; font-size: 0.72rem; font-weight: 600;
-      padding: 4px 10px; border-radius: 999px; letter-spacing: 0.3px;
+    .card-link:hover .card {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(28,24,18,0.12);
     }
-    .price-badge { position: absolute; top: 12px; right: 12px; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-    .price-free { background: #dcfce7; color: #166534; }
-    .price-paid { background: #fef3c7; color: #92400e; }
+    .card-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .card-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(28,24,18,0.35) 100%);
+    }
+    .cat-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(28,24,18,0.6);
+      backdrop-filter: blur(8px);
+      color: #f9f7f4;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      z-index: 1;
+    }
+    .price-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      z-index: 1;
+    }
+    .price-free { background: #d4edda; color: #155724; }
+    .price-paid { background: #fef3e2; color: #7d5a00; }
+
     .card-body { padding: 18px 20px 20px; }
-    .card-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-    .meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }
-    .meta span { font-size: 0.78rem; color: #6b7280; }
-    .card-body p { font-size: 0.88rem; color: #4b5563; line-height: 1.55; margin-bottom: 12px; }
-    .cta { font-size: 0.82rem; font-weight: 600; color: #0f3460; }
-    .no-events { grid-column: 1/-1; text-align: center; padding: 60px 0; color: #9ca3af; }
-    .footer { text-align: center; font-size: 0.72rem; color: #9ca3af; padding: 0 20px 32px; }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.5rem; }
+    .card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.35;
+      color: #1c1812;
+    }
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 10px;
+    }
+    .meta span { font-size: 0.76rem; color: #8a7f72; }
+    .card-body p {
+      font-size: 0.87rem;
+      color: #4a4035;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #b8965a;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Empty state ── */
+    .no-events {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 80px 0;
+      color: #8a7f72;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 0.71rem;
+      color: #8a7f72;
+      padding: 0 20px 40px;
+      letter-spacing: 0.02em;
+    }
+    .footer a { color: #b8965a; text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.9rem; }
       .panel { grid-template-columns: 1fr; }
-      .tab { padding: 12px 14px; font-size: 0.82rem; }
+      .tab { padding: 14px 16px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
+
   <div class="hero">
-    <h1>🗓️ Local Events This Week</h1>
-    <p>Curated picks near each of our properties</p>
-    <span class="date-badge">📅 March 23 – March 30, 2026</span>
+    <p class="hero-eyebrow">NestInLux · Local Guide</p>
+    <h1>Events This Month</h1>
+    <p>Handpicked experiences near each of our properties</p>
+    <span class="month-pill">📅 March 2026</span>
   </div>
-  <div class="tabs-wrap"><button class="tab active" onclick="switchTab('wallingford', this)">Wallingford, Seattle</button>
-<button class="tab " onclick="switchTab('alki', this)">Alki Beach, Seattle</button>
-<button class="tab " onclick="switchTab('lake_hills', this)">Lake Hills, Bellevue</button>
-</div>
-  <div class="content"><div id="panel-wallingford" class="panel" style="display:grid;"><div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div></div>
-<div id="panel-alki" class="panel" style="display:none;"><div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div></div>
-<div id="panel-lake_hills" class="panel" style="display:none;"><div class="no-events"><p>🔍 No events found this week. Check back next Monday!</p></div></div>
-</div>
+
+  <div class="tabs-wrap">
+    <button class="tab active" onclick="switchTab('wallingford', this)">
+          Wallingford, Seattle <span class="tab-count">0</span>
+        </button>
+<button class="tab " onclick="switchTab('alki', this)">
+          Alki Beach, Seattle <span class="tab-count">0</span>
+        </button>
+<button class="tab " onclick="switchTab('lake_hills', this)">
+          Lake Hills, Bellevue <span class="tab-count">0</span>
+        </button>
+
+  </div>
+
+  <div class="content">
+    <div id="panel-wallingford" class="panel" style="display:grid;"><div class="no-events"><p>No events found this month. Check back next update.</p></div></div>
+<div id="panel-alki" class="panel" style="display:none;"><div class="no-events"><p>No events found this month. Check back next update.</p></div></div>
+<div id="panel-lake_hills" class="panel" style="display:none;"><div class="no-events"><p>No events found this month. Check back next update.</p></div></div>
+
+  </div>
+
   <div class="footer">
-    Last updated March 23, 2026 &nbsp;·&nbsp; Events subject to change — always verify with the organiser.
-    Clicking an event searches Google for the latest details.
+    Updated March 23, 2026 &nbsp;·&nbsp; Sorted by popularity &nbsp;·&nbsp;
+    Events subject to change — always verify with the organiser &nbsp;·&nbsp;
+    <a href="https://nestinlux.com" target="_blank">nestinlux.com</a>
   </div>
+
   <script>
     function switchTab(id, btn) {
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      var el = document.getElementById('panel-' + id);
-      if (el) el.style.display = 'grid';
+      document.getElementById('panel-' + id).style.display = 'grid';
       btn.classList.add('active');
     }
   </script>
+
 </body>
 </html>
