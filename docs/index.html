@@ -6,38 +6,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}
-.hero{background:linear-gradient(160deg,#1c1812 0%,#2d2418 55%,#3d3020 100%);color:#f9f7f4;padding:52px 24px 44px;text-align:center}
-.ey{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#b8965a;margin-bottom:12px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:500;color:#f9f7f4;margin-bottom:10px;line-height:1.15}
-.hero p{font-size:.9rem;color:rgba(249,247,244,.6);margin-bottom:18px}
-.pill{display:inline-block;background:rgba(184,150,90,.18);border:1px solid rgba(184,150,90,.4);color:#d4a96a;padding:6px 20px;border-radius:999px;font-size:.8rem;letter-spacing:.08em}
+body{font-family:'Inter',sans-serif;background:#FAFAFA;color:#0D0D0D}
+.hero{background:linear-gradient(160deg,#0D0D0D 0%,#1A1A1A 100%);color:#F5F0EB;padding:52px 24px 44px;text-align:center}
+.ey{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#E8573C;margin-bottom:12px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:500;color:#F5F0EB;margin-bottom:10px;line-height:1.15}
+.hero p{font-size:.9rem;color:rgba(245,240,235,.6);margin-bottom:18px}
+.pill{display:inline-block;background:rgba(232,87,60,.15);border:1px solid rgba(232,87,60,.4);color:#E8573C;padding:6px 20px;border-radius:999px;font-size:.8rem;letter-spacing:.08em}
 .tabs-wrap{background:#fff;border-bottom:1px solid #e8e0d5;display:flex;justify-content:center;overflow-x:auto;padding:0 16px}
-.tab{font-family:'Inter',sans-serif;padding:16px 24px;border:none;background:none;font-size:.84rem;font-weight:500;color:#8a7f72;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px}
-.tab:hover{color:#1c1812}
-.tab.active{color:#1c1812;border-bottom-color:#b8965a;font-weight:600}
-.tc{background:#f0ebe3;color:#8a7f72;font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:999px}
-.tab.active .tc{background:#b8965a;color:#fff}
+.tab{font-family:'Inter',sans-serif;padding:16px 24px;border:none;background:none;font-size:.84rem;font-weight:500;color:#6B6B6B;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px}
+.tab:hover{color:#0D0D0D}
+.tab.active{color:#0D0D0D;border-bottom-color:#E8573C;font-weight:600}
+.tc{background:#F5F0EB;color:#6B6B6B;font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:999px}
+.tab.active .tc{background:#E8573C;color:#fff}
 .content{max-width:1160px;margin:0 auto;padding:36px 20px 56px}
 .panel{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .cl{text-decoration:none;color:inherit;display:block}
-.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e0d5;box-shadow:0 1px 4px rgba(28,24,18,.05);transition:transform .25s,box-shadow .25s;height:100%}
-.cl:hover .card{transform:translateY(-5px);box-shadow:0 16px 40px rgba(28,24,18,.12)}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e0d5;box-shadow:0 1px 4px rgba(13,13,13,.06);transition:transform .25s,box-shadow .25s;height:100%}
+.cl:hover .card{transform:translateY(-5px);box-shadow:0 16px 40px rgba(13,13,13,.14)}
 .ci{height:190px;background-size:cover;background-position:center;position:relative}
-.ci::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(28,24,18,.35) 100%)}
-.cb{position:absolute;top:12px;left:12px;background:rgba(28,24,18,.6);backdrop-filter:blur(8px);color:#f9f7f4;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:999px;z-index:1}
+.ci::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,13,13,.4) 100%)}
+.cb{position:absolute;top:12px;left:12px;background:rgba(13,13,13,.65);backdrop-filter:blur(8px);color:#F5F0EB;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:999px;z-index:1}
 .pb{position:absolute;top:12px;right:12px;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;z-index:1}
 .pf{background:#d4edda;color:#155724}
-.pp{background:#fef3e2;color:#7d5a00}
+.pp{background:#fdecea;color:#C94228}
 .cd{padding:18px 20px 20px}
-.cd h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;line-height:1.35;color:#1c1812}
+.cd h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;line-height:1.35;color:#0D0D0D}
 .meta{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
-.meta span{font-size:.76rem;color:#8a7f72}
-.cd p{font-size:.87rem;color:#4a4035;line-height:1.55;margin-bottom:14px}
-.cta{font-size:.78rem;font-weight:600;color:#b8965a;letter-spacing:.03em}
-.empty{grid-column:1/-1;text-align:center;padding:80px 0;color:#8a7f72}
-.footer{text-align:center;font-size:.71rem;color:#8a7f72;padding:0 20px 40px}
-.footer a{color:#b8965a;text-decoration:none}
+.meta span{font-size:.76rem;color:#6B6B6B}
+.cd p{font-size:.87rem;color:#1A1A1A;line-height:1.55;margin-bottom:14px}
+.cta{font-size:.78rem;font-weight:600;color:#E8573C;letter-spacing:.03em}
+.empty{grid-column:1/-1;text-align:center;padding:80px 0;color:#6B6B6B}
+.footer{text-align:center;font-size:.71rem;color:#6B6B6B;padding:0 20px 40px}
+.footer a{color:#E8573C;text-decoration:none}
 @media(max-width:640px){.hero h1{font-size:1.9rem}.panel{grid-template-columns:1fr}.tab{padding:14px 16px;font-size:.78rem}}
 </style>
 </head>
@@ -48,85 +48,173 @@ body{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}
   <p>Handpicked experiences near each of our properties</p>
   <span class="pill">📅 March 23 – April 06, 2026</span>
 </div>
-<div class="tabs-wrap"><button class="tab active" onclick="switchTab('wallingford', this)">Wallingford, Seattle <span class="tc">46</span></button>
-<button class="tab " onclick="switchTab('alki', this)">Alki Beach, Seattle <span class="tc">50</span></button>
-<button class="tab " onclick="switchTab('lake_hills', this)">Lake Hills, Bellevue <span class="tc">45</span></button>
+<div class="tabs-wrap"><button class="tab active" onclick="switchTab('wallingford', this)">Wallingford, Seattle <span class="tc">40</span></button>
+<button class="tab " onclick="switchTab('alki', this)">Alki Beach, Seattle <span class="tc">47</span></button>
+<button class="tab " onclick="switchTab('lake_hills', this)">Lake Hills, Bellevue <span class="tc">48</span></button>
 </div>
-<div class="content"><div id="panel-wallingford" class="panel" style="display:grid;"><a href="https://www.google.com/search?q=Pike+Place+Market+Spring+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Pike Place Market Spring Events</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-6pm</span><span>📍 Pike Place Market, Downtown Seattle</span></div>
-    <p>Fresh produce, local artisans, street performers, and iconic market experience with spring seasonal foods.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Mariners+Spring+Training+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$10-20 (bar)</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Mariners Spring Training</h3>
-    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 1pm-10pm</span><span>📍 Peoria, Arizona (broadcast in Seattle bars)</span></div>
-    <p>Baseball games available in Seattle sports bars and via local broadcasts.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Spring+Opening+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pp">$24.95</span>
-  </div>
-  <div class="cd">
-    <h3>Woodland Park Zoo Spring Opening</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9:30am-6pm</span><span>📍 Woodland Park, Fremont</span></div>
-    <p>Zoo opening with spring animals active, baby animals, and scenic natural setting.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Chihuly+Garden+and+Glass+Exhibition+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$25</span>
-  </div>
-  <div class="cd">
-    <h3>Chihuly Garden and Glass Exhibition</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-8pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Stunning glass art installations and botanical gardens by renowned artist Dale Chihuly.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Underground+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="content"><div id="panel-wallingford" class="panel" style="display:grid;"><a href="https://www.google.com/search?q=Underground+Tour+-+Historic+Seattle+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$18-22</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$22</span>
   </div>
   <div class="cd">
-    <h3>Seattle Underground Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 Pioneer Square, Downtown Seattle</span></div>
-    <p>Historic guided tours of Seattle's buried underground streets and historic buildings.</p>
+    <h3>Underground Tour - Historic Seattle</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 Various (10am-4pm)</span><span>📍 Pioneer Square, Seattle</span></div>
+    <p>Fascinating guided tour of underground passages and history of original downtown Seattle from the 1800s.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Space+Needle+Spring+Views+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Special+Exhibits+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pp">$26</span>
+    <span class="cb">🛍️ Market</span><span class="pb pp">$28</span>
   </div>
   <div class="cd">
-    <h3>Space Needle Spring Views</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9am-11pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Iconic observation tower with 360-degree city views and rotating glass floor.</p>
+    <h3>Museum of Flight Special Exhibits</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 9404 E Marginal Way S, Seattle</span></div>
+    <p>World-class aviation museum with historic aircraft, interactive exhibits, and stunning views of flight heritage.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Paramount+Theatre+Shows+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$40-$120</span>
+  </div>
+  <div class="cd">
+    <h3>Paramount Theatre Shows</h3>
+    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 7pm-8pm</span><span>📍 911 Pine St, Seattle</span></div>
+    <p>Historic theater hosting Broadway shows, concerts, and performances in an ornate 1928 venue downtown.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$22</span>
+  </div>
+  <div class="cd">
+    <h3>Woodland Park Zoo Events</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9:30am-4pm</span><span>📍 5500 Phinney Ave N, Seattle</span></div>
+    <p>Major zoo with diverse animals, spring exhibits, and educational programming in a beautiful natural setting.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Seattle+Art+Museum+Exhibitions+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$18-20</span>
+    <span class="cb">🎨 Arts</span><span class="pb pp">$20</span>
   </div>
   <div class="cd">
     <h3>Seattle Art Museum Exhibitions</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 Downtown Seattle</span></div>
-    <p>Contemporary and classic art collections in downtown's premier art museum.</p>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 1300 1st Ave, Seattle</span></div>
+    <p>Renowned museum with contemporary, modern, and Native American art in downtown's cultural heart.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Washington+Park+Arboretum+Spring+Walk+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Washington Park Arboretum Spring Walk</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9am-dusk</span><span>📍 2300 Arboretum Dr E, Seattle</span></div>
+    <p>Scenic spring garden walk with blooming flowers, peaceful pathways, and native plant collections.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Fremont+Troll+Photo+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Fremont Troll Photo Tour</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 Self-guided</span><span>📍 Aurora Bridge, Fremont, Seattle</span></div>
+    <p>Quirky must-see sculpture of giant troll under bridge, perfect for unique photos and Fremont exploration.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=CenturyLink+Field+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
+    <span class="cb">🏅 Sports</span><span class="pb pp">$20-$150</span>
+  </div>
+  <div class="cd">
+    <h3>CenturyLink Field Events</h3>
+    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 Various</span><span>📍 Lumen Field, Seattle</span></div>
+    <p>Major sports venue hosting Sounders soccer and Seahawks pre-season events with stadium tours available.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Chihuly+Garden+and+Glass+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$30</span>
+  </div>
+  <div class="cd">
+    <h3>Chihuly Garden and Glass</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5:30pm</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Stunning glass art installations by world-famous artist in garden setting with museum and performances.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Smith+Tower+Observatory+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$15</span>
+  </div>
+  <div class="cd">
+    <h3>Smith Tower Observatory Tour</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-dusk</span><span>📍 Pioneer Square, Seattle</span></div>
+    <p>Historic 1914 building with stunning 35th-floor observation deck and architectural tours.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Waterfront+Walking+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$25-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Waterfront Walking Tour</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 Various (10am-2pm)</span><span>📍 Pike Place Market Area, Seattle</span></div>
+    <p>Guided exploration of historic waterfront, ferries, local history, and scenic views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Fremont+Arts+Council+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">Free-$15</span>
+  </div>
+  <div class="cd">
+    <h3>Fremont Arts Council Events</h3>
+    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 Various</span><span>📍 Fremont, Seattle</span></div>
+    <p>Local arts organization hosting street festivals, performances, and public art installations.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Discovery+Park+Nature+Walks+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Discovery Park Nature Walks</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9am-4pm</span><span>📍 3801 Discovery Park Blvd, Seattle</span></div>
+    <p>Seattle's largest park with guided nature walks, lighthouse tours, and scenic Puget Sound views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Visit+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$32</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Aquarium Visit</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9:30am-5pm</span><span>📍 1483 Alaskan Way, Seattle</span></div>
+    <p>World-class aquarium with Pacific marine life, interactive exhibits, and waterfront location.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Nordic+Museum+Spring+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$15</span>
+  </div>
+  <div class="cd">
+    <h3>Nordic Museum Spring Events</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 2655 NW Market St, Seattle</span></div>
+    <p>Nordic heritage museum with cultural exhibitions, workshops, and Scandinavian traditions.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Ballard+Locks+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
@@ -136,746 +224,438 @@ body{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}
   </div>
   <div class="cd">
     <h3>Ballard Locks Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 7am-8:30pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Free tour of working fish locks with salmon viewing and boat passage viewing.</p>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-4pm</span><span>📍 Ballard, Seattle</span></div>
+    <p>Free public viewing of fish ladder and locks system, unique Seattle engineering experience.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Spring+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Washington+Park+Azalea+Trail+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pp">$25</span>
+    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Museum of Flight Spring Events</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 South Seattle</span></div>
-    <p>Aviation museum with historic aircraft, interactive exhibits, and flight simulators.</p>
+    <h3>Washington Park Azalea Trail</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9am-5pm</span><span>📍 2300 Arboretum Dr E, Seattle</span></div>
+    <p>Spectacular spring trail featuring thousands of blooming azaleas and rhododendrons.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Troll+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Troll Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Self-guided or group tours of famous troll sculpture under bridge and quirky Fremont landmarks.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Paramount+Theatre+Seattle+Shows+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Symphony+Concert+Series+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$30-120</span>
+    <span class="cb">🎵 Music</span><span class="pb pp">$30-$100</span>
   </div>
   <div class="cd">
-    <h3>Paramount Theatre Seattle Shows</h3>
-    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 7pm-10pm</span><span>📍 Downtown Seattle</span></div>
-    <p>Broadway shows, concerts, and theatrical performances in historic theater.</p>
+    <h3>Seattle Symphony Concert Series</h3>
+    <div class="meta"><span>📅 Thu Mar 26 - Sun Apr 5</span><span>🕐 7:30pm</span><span>📍 Benaroya Hall, Seattle</span></div>
+    <p>World-class orchestra performances in an acoustically perfect venue with classical and contemporary repertoire.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Spring+Exhibit+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Public+Theater+Performance+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$20-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Public Theater Performance</h3>
+    <div class="meta"><span>📅 Thu-Sat Mar 26-28, Apr 2-4</span><span>🕐 7:30pm</span><span>📍 Intiman Theatre, Seattle</span></div>
+    <p>Community theater with contemporary plays and classic productions in intimate venue.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Pacific+Northwest+Ballet+Spring+Season+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$33</span>
+    <span class="cb">🎭 Theater</span><span class="pb pp">$40-$120</span>
   </div>
   <div class="cd">
-    <h3>Seattle Aquarium Spring Exhibit</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9:30am-6pm</span><span>📍 Waterfront, Downtown Seattle</span></div>
-    <p>Marine life exhibits, interactive touch pools, and Seattle waterfront views.</p>
+    <h3>Pacific Northwest Ballet Spring Season</h3>
+    <div class="meta"><span>📅 Thu-Sun Mar 26 - Apr 5</span><span>🕐 7:30pm</span><span>📍 McCaw Hall, Seattle Center, Seattle</span></div>
+    <p>World-class ballet company with contemporary and classical performances.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Henry+Art+Gallery+Spring+Exhibition+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Henry Art Gallery Spring Exhibition</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 11am-6pm</span><span>📍 University District, Seattle</span></div>
-    <p>Contemporary art museum with rotating exhibitions and free admission days.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Pinball+Museum+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$15</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Pinball Museum</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 11am-9pm</span><span>📍 Georgetown, Seattle</span></div>
-    <p>Playable vintage and modern pinball machines with retro gaming atmosphere.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Photography+Exhibition+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">Free-$15</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Photography Exhibition</h3>
-    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 10am-6pm</span><span>📍 Downtown Seattle galleries</span></div>
-    <p>Contemporary and historic photography exhibitions throughout Seattle galleries.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Design+Museum+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$18</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Design Museum</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-6pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Design and architecture exhibitions showcasing product and graphic design.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Public+Library+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Public Library Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 Downtown Seattle</span></div>
-    <p>Architectural tours of stunning modern library with art installations and views.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Locks+Salmon+Viewing+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Ballard Locks Salmon Viewing</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 8am-8pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Watch salmon jumping upstream through fish ladder windows.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Arts+Council+Events+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">Free-$20</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Arts Council Events</h3>
-    <div class="meta"><span>📅 Various Mar 23 - Apr 6</span><span>🕐 6pm-10pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Community art events, performances, and creative workshops.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Festival+Shows+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Comedy Festival Shows</h3>
-    <div class="meta"><span>📅 Wed Mar 25 - Fri Apr 3</span><span>🕐 7pm-10pm</span><span>📍 Various venues, Seattle</span></div>
-    <p>Stand-up comedy performances by local and national comedians across multiple Seattle venues.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Comedy+Club+Shows+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Comedy+Underground+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
-    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-25</span>
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-$30</span>
   </div>
   <div class="cd">
-    <h3>Capitol Hill Comedy Club Shows</h3>
-    <div class="meta"><span>📅 Wed-Sat Mar 25 - Apr 5</span><span>🕐 7pm-10pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Stand-up comedy performances in intimate club setting with local comedians.</p>
+    <h3>Comedy Underground</h3>
+    <div class="meta"><span>📅 Fri-Sat Mar 27-28, Apr 3-4</span><span>🕐 7pm & 9:30pm</span><span>📍 Pioneer Square, Seattle</span></div>
+    <p>Underground comedy club featuring national and local comedians in an intimate, historic venue.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Jazz+Performance+Series+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=The+Stranger%27s+Comedy+Showcase+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$15-40</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$10-$15</span>
   </div>
   <div class="cd">
-    <h3>Seattle Jazz Performance Series</h3>
-    <div class="meta"><span>📅 Wed-Sun Mar 25 - Apr 5</span><span>🕐 7pm-10pm</span><span>📍 Various venues, Seattle</span></div>
-    <p>Live jazz performances featuring local and touring musicians.</p>
+    <h3>The Stranger's Comedy Showcase</h3>
+    <div class="meta"><span>📅 Fri Mar 27, Apr 3</span><span>🕐 8pm-10pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Local alternative comedy showcase with Seattle comedians in hip Capitol Hill venue.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Art+Fair+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Comedy+Night+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$18-25</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-$25</span>
   </div>
   <div class="cd">
-    <h3>Seattle Art Fair</h3>
-    <div class="meta"><span>📅 Thu Mar 26 - Sun Mar 29</span><span>🕐 11am-7pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Major contemporary and modern art fair with galleries from around the world, artist talks, and installations.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Night+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Night Market</h3>
-    <div class="meta"><span>📅 Fri Mar 27 - Sat Mar 28</span><span>🕐 5pm-10pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Night market with international food vendors, crafts, and live entertainment.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Burlesque+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$20-35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Burlesque Festival</h3>
-    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 8pm-11pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Theatrical burlesque performances and cabaret shows.</p>
+    <h3>Capitol Hill Comedy Night</h3>
+    <div class="meta"><span>📅 Fri-Sat Mar 27-28, Apr 3-4</span><span>🕐 8pm-10pm</span><span>📍 Q Nightclub, Capitol Hill, Seattle</span></div>
+    <p>Comedy shows with local and touring comedians in Capitol Hill's vibrant entertainment district.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Seattle+Cherry+Blossom+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Cherry Blossom Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 28 - Sun Apr 5</span><span>🕐 10am-6pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Iconic spring festival featuring Japanese culture, food vendors, live performances, and stunning cherry blossom displays.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Sounders+FC+Home+Game+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$25-80</span>
-  </div>
-  <div class="cd">
-    <h3>Sounders FC Home Game</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 7pm</span><span>📍 Lumen Field, Downtown Seattle</span></div>
-    <p>MLS soccer match with passionate fans, pre-game entertainment, and energetic atmosphere.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Food+Scene+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$45-65</span>
-  </div>
-  <div class="cd">
-    <h3>Capitol Hill Food Scene Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 11am-3pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Guided culinary tour through neighborhood's best restaurants, cafes, and food vendors.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Glass+Art+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">Free-$20</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Glass Art Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 1pm-5pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Visit artist studios and galleries featuring contemporary glass art and demonstrations.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Brewery+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🍷 Wine</span><span class="pb pp">$10-25</span>
-  </div>
-  <div class="cd">
-    <h3>Ballard Brewery Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 1pm-5pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Self-guided or group tours of craft breweries with tastings and brewery culture.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Pottery+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">Free-$10</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Pottery Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 10am-5pm</span><span>📍 Fremont & Capitol Hill, Seattle</span></div>
-    <p>Artist studio open houses and gallery visits featuring ceramics and pottery.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Music+Venues+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$10-30</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Music Venues Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 5pm-10pm</span><span>📍 Capitol Hill & Ballard, Seattle</span></div>
-    <p>Live music performances at iconic Seattle venues with craft beer options.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Pike+Brewing+Company+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80&fit=crop')">
-    <span class="cb">🍷 Wine</span><span class="pb pp">$20-25</span>
-  </div>
-  <div class="cd">
-    <h3>Pike Brewing Company Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 1pm-5pm</span><span>📍 Pike Place Market, Downtown Seattle</span></div>
-    <p>Brewery tour with tastings and Seattle craft beer history.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Record+Store+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Capitol Hill Record Store Tour</h3>
-    <div class="meta"><span>📅 Weekends Mar 28 - Apr 5</span><span>🕐 11am-6pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Visit iconic independent record stores with rare vinyl and music history.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Street+Fair+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Street Fair</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 11am-6pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Quirky neighborhood celebration with local artists, food trucks, live performances, and eclectic vibe.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Book+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$5-15</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Book Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 29 - Sun Mar 30</span><span>🕐 10am-5pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Author readings, signings, panels, and book discussions with renowned and local writers.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Walking+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$15-18</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Walking Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 10am-12pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Guided tour of quirky neighborhood landmarks, public art, and local history.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Sunday+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Sunday Market</h3>
-    <div class="meta"><span>📅 Sun Mar 29 & Apr 5</span><span>🕐 10am-5pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Weekly antique market with vintage goods, art, and local vendors.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Queen+Anne+Street+Fair+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
     <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Queen Anne Street Fair</h3>
-    <div class="meta"><span>📅 Sat Mar 30</span><span>🕐 10am-6pm</span><span>📍 Queen Anne, Seattle</span></div>
-    <p>Neighborhood community event with local vendors, food, entertainment, and spring celebration.</p>
+    <h3>Seattle Cherry Blossom Festival</h3>
+    <div class="meta"><span>📅 Sat Mar 28 - Sun Apr 5</span><span>🕐 10am-6pm</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Iconic spring celebration with Japanese culture, food vendors, traditional performances, and stunning cherry blossoms throughout the grounds.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Queen+Anne+Food+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Sounders+FC+Home+Game+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$45-60</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🏅 Sports</span><span class="pb pp">$35-$150</span>
   </div>
   <div class="cd">
-    <h3>Queen Anne Food Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 30</span><span>🕐 10am-2pm</span><span>📍 Queen Anne, Seattle</span></div>
-    <p>Culinary walking tour through neighborhood's best restaurants and food vendors.</p>
+    <h3>Seattle Sounders FC Home Game</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 7:30pm</span><span>📍 Lumen Field, Seattle</span></div>
+    <p>MLS soccer with passionate fans, exciting atmosphere, and high-quality athletic competition in a world-class stadium.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Street+Art+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Pike+Place+Market+Flower+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$20-25</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Seattle Street Art Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 30</span><span>🕐 10am-12pm</span><span>📍 Capitol Hill & Fremont, Seattle</span></div>
-    <p>Guided tour of public murals, street art, and graffiti installations.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Art+Walk+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Capitol Hill Art Walk</h3>
-    <div class="meta"><span>📅 First Thu Apr 3</span><span>🕐 6pm-9pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Gallery openings, artist receptions, and art performances throughout neighborhood.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Spring+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Capitol Hill Spring Festival</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 12pm-10pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Neighborhood festival with local food vendors, craft booths, live music, and vibrant street culture.</p>
+    <h3>Pike Place Market Flower Festival</h3>
+    <div class="meta"><span>📅 Sat Mar 28 - Sun Apr 5</span><span>🕐 9am-6pm</span><span>📍 Pike Place Market, Seattle</span></div>
+    <p>Iconic market celebration with vibrant flower displays, fresh produce, local vendors, and stunning photo opportunities.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Ballard+Seafood+Fest+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$5-15</span>
+    <span class="cb">🎵 Music</span><span class="pb pp">Free (food extra)</span>
   </div>
   <div class="cd">
     <h3>Ballard Seafood Fest</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 11am-9pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Fresh seafood samples, cooking demonstrations, live music, and Scandinavian heritage celebration.</p>
+    <div class="meta"><span>📅 Sat Mar 28 - Sun Mar 29</span><span>🕐 10am-6pm</span><span>📍 Ballard Avenue, Seattle</span></div>
+    <p>Celebration of Nordic heritage with fresh seafood, Scandinavian food, live music, and local artisan vendors.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Historical+Walking+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$15-20</span>
-  </div>
-  <div class="cd">
-    <h3>Ballard Historical Walking Tour</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 11am-1pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Guided tour of Scandinavian neighborhood history and architectural landmarks.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Food+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$50-70</span>
-  </div>
-  <div class="cd">
-    <h3>Ballard Food Tour</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 11am-3pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Guided tour of Scandinavian restaurants, bakeries, and specialty food shops.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a></div>
-<div id="panel-alki" class="panel" style="display:none;"><a href="https://www.google.com/search?q=Underground+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$25</span>
-  </div>
-  <div class="cd">
-    <h3>Underground Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am, 1pm, 3pm, 5pm</span><span>📍 Pioneer Square, Downtown Seattle</span></div>
-    <p>Historic tour of Seattle's underground streets and buildings. Unique glimpse into Seattle's gold rush era.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Gum+Wall+Tour+%26+Alleyway+Art+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Gum Wall Tour & Alleyway Art</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-4pm</span><span>📍 Post Alley, Pike Place Market, Downtown</span></div>
-    <p>Quirky Instagram-famous wall and nearby street art. Unique Seattle experience tourists love.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Space+Needle+Events+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$25-$35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Space Needle Events</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9am-midnight</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Iconic observation deck with spring skyline views and seasonal exhibits. Must-do Seattle tourist attraction.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Spring+Hours+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pp">$25-$28</span>
-  </div>
-  <div class="cd">
-    <h3>Museum of Flight Spring Hours</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 Museum of Flight, Tukwila</span></div>
-    <p>World-class aviation museum with historic aircraft and flight simulators. Major Seattle tourist destination.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Chihuly+Garden+and+Glass+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$24-$28</span>
-  </div>
-  <div class="cd">
-    <h3>Chihuly Garden and Glass</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5:30pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Stunning glass art installations by world-renowned artist Dale Chihuly. Major tourist attraction.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Spring+Preview+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pp">$23-$27</span>
-  </div>
-  <div class="cd">
-    <h3>Woodland Park Zoo Spring Preview</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 9:30am-4pm</span><span>📍 Woodland Park Zoo, Green Lake</span></div>
-    <p>85-acre zoo with native and exotic animals. Family-friendly major Seattle attraction.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Gas+Works+Park+Spring+Picnics+%26+Views+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Gas Works Park Spring Picnics & Views</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 6am-10pm</span><span>📍 Gas Works Park, Wallingford</span></div>
-    <p>Iconic park with downtown skyline views and industrial art installations. Instagram-famous Seattle spot.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Great+Wheel+Rides+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pp">$15-$17</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Great Wheel Rides</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-10pm</span><span>📍 Waterfront, Downtown Seattle</span></div>
-    <p>175-foot observation wheel with Elliott Bay and city views. Popular waterfront attraction.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Locks+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Ballard Locks Tour</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 7am-8:45pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Free tour of salmon ladder and lock system. Unique engineering experience with wildlife viewing.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Kerry+Park+Viewpoint+Spring+Sunset+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Kerry Park Viewpoint Spring Sunset</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 Sunset times vary</span><span>📍 Queen Anne, Seattle</span></div>
-    <p>Best Seattle skyline views at sunset. Must-visit photo spot for tourists.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Safeco+Field+Stadium+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$20-$25</span>
-  </div>
-  <div class="cd">
-    <h3>Safeco Field Stadium Tour</h3>
-    <div class="meta"><span>📅 Mon-Fri Mar 23-Apr 3</span><span>🕐 10:30am, 12:30pm, 2:30pm</span><span>📍 SoDo, Seattle</span></div>
-    <p>Behind-the-scenes tour of iconic baseball stadium. Sports history and architecture showcase.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Pinball+Museum+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$14-$20</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Pinball Museum</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-10pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Playable vintage pinball machines and arcade games. Fun retro experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Olympic+Sculpture+Park+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80&fit=crop')">
-    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Olympic Sculpture Park</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 24 hours</span><span>📍 Waterfront, Downtown Seattle</span></div>
-    <p>Free outdoor sculpture museum with water and mountain views. Premier art destination.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Aquatic+Center+Spring+Classes+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$15-$40</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Aquatic Center Spring Classes</h3>
-    <div class="meta"><span>📅 Various dates Mar 23 - Apr 6</span><span>🕐 Multiple times daily</span><span>📍 Green Lake, Seattle</span></div>
-    <p>Swimming and water sports lessons. Active recreation at beautiful Green Lake.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Schmitz+Preserve+Park+Hiking+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Schmitz Preserve Park Hiking</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 Sunrise-sunset</span><span>📍 West Seattle/Burien</span></div>
-    <p>Old-growth forest trails near Alki Beach. Nature exploration near tourist areas.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Beacon+Hill+Park+Sunset+Walks+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">Free-$10</span>
-  </div>
-  <div class="cd">
-    <h3>Beacon Hill Park Sunset Walks</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 6pm-7pm</span><span>📍 Beacon Hill, South Seattle</span></div>
-    <p>Walking tours of historic park with cultural attractions and Japanese garden. Scenic neighborhood.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Burke+Museum+Spring+Collections+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$15-$20</span>
-  </div>
-  <div class="cd">
-    <h3>Burke Museum Spring Collections</h3>
-    <div class="meta"><span>📅 Daily Mar 23 - Apr 6</span><span>🕐 10am-5pm</span><span>📍 University of Washington, Seattle</span></div>
-    <p>Natural history and art museum on UW campus. Educational and cultural experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Public+Library+Tours+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Public Library Tours</h3>
-    <div class="meta"><span>📅 Wed-Sun Mar 25-29, Apr 1-6</span><span>🕐 1pm, 3pm</span><span>📍 Seattle Public Library, Downtown Seattle</span></div>
-    <p>Architectural marvel with free tours. Iconic building and unique design beloved by visitors.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Nordic+Heritage+Museum+Spring+Exhibits+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$12-$15</span>
-  </div>
-  <div class="cd">
-    <h3>Nordic Heritage Museum Spring Exhibits</h3>
-    <div class="meta"><span>📅 Tue-Sun Mar 25-Apr 5</span><span>🕐 10am-5pm</span><span>📍 Ballard, Seattle</span></div>
-    <p>Scandinavian culture exhibits and heritage displays. Unique cultural museum experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Waterfront+Park+Farmers+Market+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Queen+Anne+Craft+Fair+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
     <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Waterfront Park Farmers Market</h3>
-    <div class="meta"><span>📅 Wed Mar 25, Apr 1</span><span>🕐 3pm-7pm</span><span>📍 Waterfront Park, Downtown Seattle</span></div>
-    <p>Local farmers and artisan vendors at scenic waterfront. Fresh spring produce and goods.</p>
+    <h3>Queen Anne Craft Fair</h3>
+    <div class="meta"><span>📅 Sat Mar 28 - Sun Mar 29</span><span>🕐 10am-5pm</span><span>📍 Kerry Park, Seattle</span></div>
+    <p>Local artisan marketplace with handmade goods, stunning skyline views, and neighborhood charm.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+International+Film+Festival+Preview+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Ballard+Food+Scene+Walking+Tour+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$13-$15</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$45-$55</span>
   </div>
   <div class="cd">
-    <h3>Seattle International Film Festival Preview</h3>
-    <div class="meta"><span>📅 Thu Mar 26 - Sun Mar 29</span><span>🕐 Various</span><span>📍 SIFF Cinema, Downtown Seattle</span></div>
-    <p>World-class film festival showcasing international cinema. One of North America's largest film festivals.</p>
+    <h3>Ballard Food Scene Walking Tour</h3>
+    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 2pm-5pm</span><span>📍 Ballard, Seattle</span></div>
+    <p>Guided tour of Scandinavian restaurants, breweries, and food shops in charming Ballard neighborhood.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Underground+Shows+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Food+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
-    <span class="cb">🎤 Comedy</span><span class="pb pp">$20-$35</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">Free (food extra)</span>
   </div>
   <div class="cd">
-    <h3>Seattle Comedy Underground Shows</h3>
-    <div class="meta"><span>📅 Thu-Sat Mar 26-28, Apr 2-4</span><span>🕐 7pm, 9pm</span><span>📍 Pioneer Square, Downtown Seattle</span></div>
-    <p>Intimate comedy club in historic basement venue. Underground Seattle entertainment.</p>
+    <h3>Capitol Hill Food Festival</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 12pm-6pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Neighborhood food celebration with diverse cuisines, local restaurants, and live music.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=The+Paramount+Theatre+Comedy+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Fremont+Vintage+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
-    <span class="cb">🎤 Comedy</span><span class="pb pp">$35-$75</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>The Paramount Theatre Comedy Series</h3>
-    <div class="meta"><span>📅 Fri Mar 27 - Sat Mar 28</span><span>🕐 7:30pm</span><span>📍 Paramount Theatre, Downtown Seattle</span></div>
-    <p>Intimate comedy shows in historic theater with top comedians. Premium downtown venue experience.</p>
+    <h3>Fremont Vintage Market</h3>
+    <div class="meta"><span>📅 Sat-Sun Mar 28-29, Apr 4-5</span><span>🕐 10am-5pm</span><span>📍 Fremont, Seattle</span></div>
+    <p>Eclectic vintage and retro market with unique clothing, furniture, and collectibles.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Waterfront+Park+Concert+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Fremont+Sunday+Market+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Fremont Sunday Market</h3>
+    <div class="meta"><span>📅 Sun Mar 29, Apr 5</span><span>🕐 10am-5pm</span><span>📍 N 34th St, Fremont, Seattle</span></div>
+    <p>Quirky Seattle institution with local crafts, vintage goods, food vendors, and the famous Fremont Troll nearby.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Wallingford+Street+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
     <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Waterfront Park Concert Series</h3>
-    <div class="meta"><span>📅 Fri Mar 27, Apr 3</span><span>🕐 6pm</span><span>📍 Waterfront Park, Downtown Seattle</span></div>
-    <p>Outdoor music performances with water views. Seasonal spring entertainment.</p>
+    <h3>Wallingford Street Festival</h3>
+    <div class="meta"><span>📅 Sun Mar 29, Apr 5</span><span>🕐 11am-5pm</span><span>📍 Wallingford Center, Seattle</span></div>
+    <p>Neighborhood celebration with local artists, food vendors, live music, and community spirit.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Art+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Art+Fair+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$20</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Art Fair</h3>
+    <div class="meta"><span>📅 Thu Apr 2 - Sun Apr 5</span><span>🕐 10am-6pm</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Premier contemporary and modern art exhibition featuring galleries from around the world with paintings, sculptures, and installations.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Ballard+High+School+Symphony+Orchestra+Concert+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">Free-$10</span>
+  </div>
+  <div class="cd">
+    <h3>Ballard High School Symphony Orchestra Concert</h3>
+    <div class="meta"><span>📅 Fri Apr 2</span><span>🕐 7pm</span><span>📍 Ballard High School, Seattle</span></div>
+    <p>Community orchestra concert featuring talented local musicians in intimate neighborhood setting.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Block+Party+Music+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$85-$150</span>
+  </div>
+  <div class="cd">
+    <h3>Capitol Hill Block Party Music Festival</h3>
+    <div class="meta"><span>📅 Fri Apr 3 - Sun Apr 5</span><span>🕐 Various</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Multi-stage indie and alternative music festival with emerging and established bands, food trucks, and Seattle's trendy neighborhood vibe.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Georgetown+Carnival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">Free (rides/food extra)</span>
+  </div>
+  <div class="cd">
+    <h3>Georgetown Carnival</h3>
+    <div class="meta"><span>📅 Sat Apr 4 - Sun Apr 5</span><span>🕐 11am-6pm</span><span>📍 South Seattle, Seattle</span></div>
+    <p>Community festival with rides, food, live music, and local vendors celebrating Seattle's quirky neighborhoods.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Greenwood+Beer+and+Food+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$35</span>
+  </div>
+  <div class="cd">
+    <h3>Greenwood Beer and Food Festival</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 2pm-6pm</span><span>📍 Greenwood, Seattle</span></div>
+    <p>Local brewery and restaurant celebration with craft beers, food pairings, and live music.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Shoreline+Arts+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Shoreline Arts Festival</h3>
+    <div class="meta"><span>📅 Sat Apr 5 - Sun Apr 6</span><span>🕐 10am-5pm</span><span>📍 Shoreline, WA</span></div>
+    <p>Regional arts and crafts festival with local artists, live music, and family activities.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+International+Film+Festival+Wallingford%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$13</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle International Film Festival</h3>
+    <div class="meta"><span>📅 Thu May 21 - Sun Jun 14 (early screenings start Apr)</span><span>🕐 Various</span><span>📍 Various Venues, Seattle</span></div>
+    <p>World's largest film festival with global cinema, documentaries, and unique international perspectives.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a></div>
+<div id="panel-alki" class="panel" style="display:none;"><a href="https://www.google.com/search?q=Pike+Place+Market+Spring+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Pike Place Market Spring Festival</h3>
+    <div class="meta"><span>📅 Wed Mar 25</span><span>🕐 9am</span><span>📍 Pike Place Market, Downtown Seattle</span></div>
+    <p>Farmers market celebration with local food vendors, live music, and flower displays.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Art+Museum+Special+Exhibition+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$18</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Art Museum Special Exhibition</h3>
+    <div class="meta"><span>📅 Wed Mar 25</span><span>🕐 10am</span><span>📍 Downtown Seattle</span></div>
+    <p>Contemporary and classical art collections in iconic waterfront museum.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Public+Library+Spring+Author+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Public Library Spring Author Series</h3>
+    <div class="meta"><span>📅 Tue Mar 25</span><span>🕐 6pm</span><span>📍 Downtown Seattle</span></div>
+    <p>Author readings and book signings.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Rainier+Square+Tower+Spring+Concert+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Rainier Square Tower Spring Concert</h3>
+    <div class="meta"><span>📅 Wed Mar 25</span><span>🕐 5:30pm</span><span>📍 Downtown Seattle</span></div>
+    <p>Free outdoor concert series with local musicians.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Underground+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$22</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Underground Tour</h3>
+    <div class="meta"><span>📅 Thu Mar 26</span><span>🕐 2pm</span><span>📍 Pioneer Square, Downtown</span></div>
+    <p>Historic underground tour revealing old Seattle buildings beneath current streets.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Spring+Program+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$32</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Aquarium Spring Program</h3>
+    <div class="meta"><span>📅 Wed Mar 26</span><span>🕐 10am</span><span>📍 Downtown Waterfront</span></div>
+    <p>Interactive marine life exhibits and educational demonstrations.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Ballard+Art+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
     <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Capitol Hill Art Walk</h3>
-    <div class="meta"><span>📅 First Friday (Mar 27)</span><span>🕐 5pm-9pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Monthly art gallery openings and street performances. Trendy neighborhood showcase.</p>
+    <h3>Ballard Art Walk</h3>
+    <div class="meta"><span>📅 Thu Mar 26</span><span>🕐 6pm</span><span>📍 Ballard, Seattle</span></div>
+    <p>Gallery openings and street art installations throughout neighborhood.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Wooden+Boat+Festival+Preview+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Membership+Event+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pp">Free-$10</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$23</span>
   </div>
   <div class="cd">
-    <h3>Wooden Boat Festival Preview</h3>
-    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 5pm-8pm</span><span>📍 Lake Union, Seattle</span></div>
-    <p>Preview of wooden boat culture and craftsmanship. Unique Seattle maritime tradition.</p>
+    <h3>Woodland Park Zoo Membership Event</h3>
+    <div class="meta"><span>📅 Wed Mar 26</span><span>🕐 10am</span><span>📍 Fremont, Seattle</span></div>
+    <p>Spring animal exhibits and special keeper talks.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Benaroya+Hall+Classical+Music+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Museum+of+Pop+Culture+Spring+Exhibition+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$40-$120</span>
+    <span class="cb">🎵 Music</span><span class="pb pp">$30</span>
   </div>
   <div class="cd">
-    <h3>Benaroya Hall Classical Music Series</h3>
-    <div class="meta"><span>📅 Thu Mar 27, Apr 3</span><span>🕐 7:30pm</span><span>📍 Benaroya Hall, Downtown Seattle</span></div>
-    <p>Seattle Symphony performances in historic concert hall. Premier classical music venue.</p>
+    <h3>Museum of Pop Culture Spring Exhibition</h3>
+    <div class="meta"><span>📅 Wed Mar 26</span><span>🕐 10am</span><span>📍 Seattle Center</span></div>
+    <p>Interactive music, film, and pop culture exhibits.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Paramount+Theatre+Broadway+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Mariners+vs+Angels+MLB+Game+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
-    <span class="cb">🎭 Theater</span><span class="pb pp">$50-$150</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🏅 Sports</span><span class="pb pp">$45</span>
   </div>
   <div class="cd">
-    <h3>Paramount Theatre Broadway Series</h3>
-    <div class="meta"><span>📅 Multiple dates Mar 27-Apr 6</span><span>🕐 7:30pm</span><span>📍 Paramount Theatre, Downtown Seattle</span></div>
-    <p>Broadway touring shows in historic theater. Premium downtown entertainment.</p>
+    <h3>Mariners vs Angels MLB Game</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 7:10pm</span><span>📍 T-Mobile Park, SoDo</span></div>
+    <p>Opening day baseball action with views of Elliott Bay.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Intiman+Theatre+Spring+Productions+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Underground+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
-    <span class="cb">🎭 Theater</span><span class="pb pp">$35-$80</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$20</span>
   </div>
   <div class="cd">
-    <h3>Intiman Theatre Spring Productions</h3>
-    <div class="meta"><span>📅 Multiple dates Mar 27-Apr 6</span><span>🕐 7:30pm</span><span>📍 Seattle Center, Downtown Seattle</span></div>
-    <p>Innovative theater productions and experimental works. Premier theater venue.</p>
+    <h3>Seattle Comedy Underground</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 8pm</span><span>📍 Pioneer Square, Downtown</span></div>
+    <p>Stand-up comedy shows featuring local and national comedians.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Kerry+Park+Spring+Photography+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$35</span>
+  </div>
+  <div class="cd">
+    <h3>Kerry Park Spring Photography Walk</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 3pm</span><span>📍 Queen Anne, Seattle</span></div>
+    <p>Guided tour capturing Seattle skyline and spring blooms.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Spring+Opening+Events+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pp">$28</span>
+  </div>
+  <div class="cd">
+    <h3>Museum of Flight Spring Opening Events</h3>
+    <div class="meta"><span>📅 Thu Mar 27</span><span>🕐 10am</span><span>📍 South Seattle</span></div>
+    <p>Historic aircraft exhibits and interactive aviation experiences.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Pier+66+Harbor+Cruise+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$35</span>
+  </div>
+  <div class="cd">
+    <h3>Pier 66 Harbor Cruise</h3>
+    <div class="meta"><span>📅 Thu Mar 27</span><span>🕐 3pm</span><span>📍 Downtown Waterfront</span></div>
+    <p>Scenic boat tour of Puget Sound and city skyline.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Beer+Week+Opening+Celebration+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80&fit=crop')">
+    <span class="cb">🍷 Wine</span><span class="pb pp">$40</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Beer Week Opening Celebration</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 5pm</span><span>📍 Various breweries</span></div>
+    <p>Craft beer tastings and brewery tours.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Seattle+Cherry+Blossom+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
@@ -885,416 +665,526 @@ body{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}
   </div>
   <div class="cd">
     <h3>Seattle Cherry Blossom Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 28 - Sun Apr 5</span><span>🕐 10am-6pm</span><span>📍 University of Washington, Seattle</span></div>
-    <p>Iconic spring festival with Japanese cultural performances, food vendors, and stunning cherry blossoms. Major Seattle tradition attracting thousands.</p>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 10am</span><span>📍 University of Washington Quad, Seattle</span></div>
+    <p>Iconic spring festival with food vendors, cultural performances, and thousands of blooming cherry trees.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seafair+Torchlight+Parade+Kickoff+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Street+Festival+Spring+Preview+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Seafair Torchlight Parade Kickoff</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 6pm-8pm</span><span>📍 Downtown Seattle</span></div>
-    <p>Beginning of Seattle's famous summer festival season with street performances and entertainment.</p>
+    <h3>Capitol Hill Street Festival Spring Preview</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 2pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Neighborhood celebration with food, music, and local vendors.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Ballard+Street+Food+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Chinatown-International+District+Walking+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pp">$25</span>
+  </div>
+  <div class="cd">
+    <h3>Chinatown-International District Walking Tour</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 2pm</span><span>📍 Pioneer Square</span></div>
+    <p>Historical neighborhood tour with cultural insights.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Bumbershoot+Spring+Market+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$65-$85</span>
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Ballard Street Food Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 11am</span><span>📍 Ballard neighborhood, Seattle</span></div>
-    <p>Guided food tour through trendy Ballard with local cuisine and brewery stops. Popular for food-loving tourists.</p>
+    <h3>Bumbershoot Spring Market</h3>
+    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 10am</span><span>📍 Seattle Center, Downtown</span></div>
+    <p>Arts and crafts market with local artisans, food vendors, and live performances.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Spring+Events+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Alki+Beach+Spring+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Alki Beach Spring Festival</h3>
+    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 11am</span><span>📍 Alki Beach, West Seattle</span></div>
+    <p>Local community festival with food trucks, live music, and beach activities.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Center+Monorail+Exploration+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$35-$40</span>
+    <span class="cb">🎉 Festival</span><span class="pb pp">$3.50</span>
   </div>
   <div class="cd">
-    <h3>Seattle Aquarium Spring Events</h3>
-    <div class="meta"><span>📅 Weekends Mar 28-29, Apr 4-5</span><span>🕐 9:30am-5pm</span><span>📍 Seattle Aquarium, Downtown Seattle</span></div>
-    <p>Interactive marine exhibits and seasonal animal presentations. Popular family tourist attraction.</p>
+    <h3>Seattle Center Monorail Exploration Tour</h3>
+    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 11am</span><span>📍 Seattle Center, Downtown</span></div>
+    <p>Guided tour of iconic 1962 World's Fair monorail system.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Vintage+Market+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Fremont Vintage Market</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 10am-5pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Quirky neighborhood vintage fair with retro goods and local vendors. Quintessential Seattle experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Alki+Beach+Spring+Markets+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Alki Beach Spring Markets</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 10am-3pm</span><span>📍 Alki Beach, West Seattle</span></div>
-    <p>Local vendors and crafts on scenic beach with water views. Great for beach day activities.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Smith+Cove+Kayaking+Tours+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🌿 Outdoors</span><span class="pb pp">$75-$95</span>
-  </div>
-  <div class="cd">
-    <h3>Smith Cove Kayaking Tours</h3>
-    <div class="meta"><span>📅 Sat-Sun Mar 28-29, Apr 4-5</span><span>🕐 10am, 2pm</span><span>📍 Smith Cove, Magnolia</span></div>
-    <p>Guided kayak tours with marine life viewing and waterfront scenery. Active tourism experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Culinary+Tour+-+Pike+Place+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Food+Tour+-+Pike+Place+Route+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$55-$75</span>
+    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$85</span>
   </div>
   <div class="cd">
-    <h3>Seattle Culinary Tour - Pike Place</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 10am</span><span>📍 Pike Place Market, Downtown Seattle</span></div>
-    <p>Guided market tour with tastings from local vendors. Perfect intro to Seattle food scene.</p>
+    <h3>Seattle Food Tour - Pike Place Route</h3>
+    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 10am</span><span>📍 Pike Place Market, Downtown</span></div>
+    <p>Guided culinary tour with tastings from local vendors.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Murals+Walking+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$25-$35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Murals Walking Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 10am</span><span>📍 Georgetown/Capitol Hill, Seattle</span></div>
-    <p>Guided tour of neighborhood street art and murals. Street art culture experience.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Espresso+Crawl+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Washington+Park+Arboretum+Spring+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$45-$65</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$15</span>
   </div>
   <div class="cd">
-    <h3>Espresso Crawl Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 9am</span><span>📍 Various neighborhoods, Seattle</span></div>
-    <p>Guided tour visiting 3-4 specialty coffee shops. Seattle coffee culture experience.</p>
+    <h3>Washington Park Arboretum Spring Tour</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 2pm</span><span>📍 University District, Seattle</span></div>
+    <p>Guided tour of spring blooms and native plants with scenic walking paths.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Cider+Tour+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Discovery+Park+Spring+Wildflower+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🍷 Wine</span><span class="pb pp">$55-$75</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$12</span>
   </div>
   <div class="cd">
-    <h3>Seattle Cider Tour</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 11am</span><span>📍 SoDo/Georgetown, Seattle</span></div>
-    <p>Guided tour of local cider houses with tastings. Emerging Seattle beverage scene.</p>
+    <h3>Discovery Park Spring Wildflower Walk</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 10am</span><span>📍 Ballard/Magnolia, Seattle</span></div>
+    <p>Ranger-led tour of native wildflowers and coastal views.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Sounders+FC+vs+LA+Galaxy+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Green+Lake+Spring+5K+Fun+Run+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$30-$100</span>
+    <span class="cb">📍 Experience</span><span class="pb pp">$35</span>
   </div>
   <div class="cd">
-    <h3>Sounders FC vs LA Galaxy</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 5pm</span><span>📍 Lumen Field, SoDo</span></div>
-    <p>MLS regular season match featuring Seattle's beloved soccer team. Electric atmosphere and easy SoDo access.</p>
+    <h3>Green Lake Spring 5K Fun Run</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 8am</span><span>📍 Green Lake, North Seattle</span></div>
+    <p>Community running event with scenic lake views.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Glass+Art+Society+Demo+Days+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Gasworks+Park+Spring+Kite+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">Free-$10</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Seattle Glass Art Society Demo Days</h3>
-    <div class="meta"><span>📅 Sat Mar 29, Apr 5</span><span>🕐 12pm-4pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Watch live glass blowing demonstrations by local artists. Unique art form experience.</p>
+    <h3>Gasworks Park Spring Kite Festival</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 12pm</span><span>📍 Wallingford, Seattle</span></div>
+    <p>Community kite flying event with food vendors.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Discovery+Park+Guided+Nature+Walks+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Walking+Tour+-+Waterfront+Historic+Route+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$18</span>
   </div>
   <div class="cd">
-    <h3>Discovery Park Guided Nature Walks</h3>
-    <div class="meta"><span>📅 Sat Mar 29, Apr 5</span><span>🕐 10am</span><span>📍 Discovery Park, Magnolia</span></div>
-    <p>Seattle's largest park with ranger-led nature tours and lighthouse views. Scenic and educational.</p>
+    <h3>Seattle Walking Tour - Waterfront Historic Route</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 9am</span><span>📍 Downtown Waterfront</span></div>
+    <p>Guided tour of waterfront history and architecture.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Fremont+Sunday+Market+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Paramount+Theatre+Spring+Concert+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$65</span>
   </div>
   <div class="cd">
-    <h3>Fremont Sunday Market</h3>
-    <div class="meta"><span>📅 Sun Mar 29, Apr 5</span><span>🕐 10am-5pm</span><span>📍 Fremont, Seattle</span></div>
-    <p>Year-round antique and craft market in quirky Fremont neighborhood. Iconic Seattle weekend activity.</p>
+    <h3>Paramount Theatre Spring Concert Series</h3>
+    <div class="meta"><span>📅 Tue Apr 1</span><span>🕐 7:30pm</span><span>📍 Downtown Seattle</span></div>
+    <p>Broadway shows and concerts in historic 1928 theater.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Film+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$12</span>
+  </div>
+  <div class="cd">
+    <h3>Capitol Hill Film Festival</h3>
+    <div class="meta"><span>📅 Tue Apr 1</span><span>🕐 7pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Independent and international film screenings.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Seattle+Art+Fair+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$20-$25</span>
+    <span class="cb">🎉 Festival</span><span class="pb pp">$25</span>
   </div>
   <div class="cd">
     <h3>Seattle Art Fair</h3>
-    <div class="meta"><span>📅 Thu Apr 2 - Sun Apr 5</span><span>🕐 11am-6pm</span><span>📍 CenturyLink Event Center, SoDo</span></div>
-    <p>Premier contemporary art fair featuring galleries from around the world. Perfect for art enthusiasts and culture seekers.</p>
+    <div class="meta"><span>📅 Thu Apr 2</span><span>🕐 11am</span><span>📍 CenturyLink Field, SoDo</span></div>
+    <p>Premier contemporary and modern art fair with galleries from around the world.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Pioneer+Square+Art+Walk+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+International+Film+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$15</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle International Film Festival</h3>
+    <div class="meta"><span>📅 Thu Apr 2</span><span>🕐 7pm</span><span>📍 Various theaters, Downtown</span></div>
+    <p>Major film festival featuring international and independent cinema.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Benaroya+Hall+Chamber+Music+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$45</span>
+  </div>
+  <div class="cd">
+    <h3>Benaroya Hall Chamber Music Series</h3>
+    <div class="meta"><span>📅 Wed Apr 2</span><span>🕐 7:30pm</span><span>📍 Downtown Seattle</span></div>
+    <p>Classical chamber performances in intimate concert hall.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Sculpture+Park+Spring+Installation+Opening+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80&fit=crop')">
+    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Sculpture Park Spring Installation Opening</h3>
+    <div class="meta"><span>📅 Thu Apr 2</span><span>🕐 12pm</span><span>📍 Olympic Sculpture Park, Downtown Waterfront</span></div>
+    <p>Outdoor contemporary art installations with waterfront views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Waterfront+Park+Jazz+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$20</span>
+  </div>
+  <div class="cd">
+    <h3>Waterfront Park Jazz Series</h3>
+    <div class="meta"><span>📅 Fri Apr 3</span><span>🕐 6pm</span><span>📍 Waterfront Park, Downtown</span></div>
+    <p>Live jazz performances overlooking Elliott Bay.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Theatre+Company+Production+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$50</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Theatre Company Production</h3>
+    <div class="meta"><span>📅 Fri Apr 3</span><span>🕐 7:30pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Professional theatre production in intimate setting.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Freeway+Park+Spring+Art+Installation+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
     <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Pioneer Square Art Walk</h3>
-    <div class="meta"><span>📅 First Thursday (Apr 2)</span><span>🕐 5pm-8pm</span><span>📍 Pioneer Square, Downtown Seattle</span></div>
-    <p>Monthly celebration of local art galleries, street performances, and historic neighborhood charm. Free and vibrant community event.</p>
+    <h3>Freeway Park Spring Art Installation</h3>
+    <div class="meta"><span>📅 Thu Apr 3</span><span>🕐 12pm</span><span>📍 Downtown Seattle</span></div>
+    <p>Contemporary public art space with waterfall sculpture.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Pike+Place+Market+Spring+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Fremont+Street+Fair+Spring+Edition+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Fremont Street Fair Spring Edition</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 10am</span><span>📍 Fremont, Seattle</span></div>
+    <p>Quirky neighborhood festival with street performers, food vendors, and local artisans.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Washington+Park+Rose+Garden+Spring+Event+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Washington Park Rose Garden Spring Event</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 1pm</span><span>📍 University District, Seattle</span></div>
+    <p>Garden walk featuring early spring blooms and botanical displays.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=International+District+Spring+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>International District Spring Festival</h3>
+    <div class="meta"><span>📅 Fri Apr 4</span><span>🕐 11am</span><span>📍 Pioneer Square area</span></div>
+    <p>Asian cultural celebration with food, performances, and crafts.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Vintage+Market+Spring+Edition+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pp">$5</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Vintage Market Spring Edition</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 10am</span><span>📍 Various locations, Seattle</span></div>
+    <p>Curated vintage and antique vendors in pop-up format.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Occidental+Park+Jazz+Night+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80&fit=crop')">
+    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Occidental Park Jazz Night</h3>
+    <div class="meta"><span>📅 Fri Apr 4</span><span>🕐 6pm</span><span>📍 Pioneer Square</span></div>
+    <p>Outdoor jazz performance in historic square.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seafair+Torchlight+Parade+Preview+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Seafair Torchlight Parade Preview</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 6pm</span><span>📍 Pioneer Square, Downtown</span></div>
+    <p>Community parade celebration with floats and local performers.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Sounders+FC+Match+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🏅 Sports</span><span class="pb pp">$55</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Sounders FC Match</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 5pm</span><span>📍 Lumen Field, SoDo</span></div>
+    <p>Professional soccer with passionate fan atmosphere and waterfront stadium.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Belltown+Street+Performers+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Belltown Street Performers Festival</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 1pm</span><span>📍 Belltown, Downtown</span></div>
+    <p>Live street performances including music and comedy.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Volunteer+Park+Spring+Concert+Series+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Volunteer Park Spring Concert Series</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 4pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Live music in historic park with city views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Georgetown+Carnival+Spring+Edition+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Georgetown Carnival Spring Edition</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 11am</span><span>📍 Georgetown, South Seattle</span></div>
+    <p>Community carnival with local food and entertainment.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Smith+Cove+Food+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Smith Cove Food Festival</h3>
+    <div class="meta"><span>📅 Sun Apr 6</span><span>🕐 12pm</span><span>📍 Ballard/Magnolia, Seattle</span></div>
+    <p>Local food vendors, craft beverages, and live entertainment.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a></div>
+<div id="panel-lake_hills" class="panel" style="display:none;"><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Spring+Break+Programs+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">📍 Experience</span><span class="pb pp">$25-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Woodland Park Zoo Spring Break Programs</h3>
+    <div class="meta"><span>📅 Daily Mar 23 - Apr 5</span><span>🕐 9:30am</span><span>📍 Woodland Park Zoo, Seattle</span></div>
+    <p>Interactive animal encounters and educational programs for families visiting the zoo.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Washington+Lottery+HQ+Tour+%26+Art+Exhibit+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Washington Lottery HQ Tour & Art Exhibit</h3>
+    <div class="meta"><span>📅 Wed Mar 25</span><span>🕐 10am</span><span>📍 Olympia, WA</span></div>
+    <p>Unique behind-the-scenes look at lottery operations with contemporary art displays.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Rainier+Square+Art+Installation+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Rainier Square Art Installation Tour</h3>
+    <div class="meta"><span>📅 Wed Mar 25</span><span>🕐 11am</span><span>📍 Rainier Square, Seattle</span></div>
+    <p>Self-guided or docent-led tours of contemporary art installations in iconic building.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Comedy Festival</h3>
+    <div class="meta"><span>📅 Thu Mar 26</span><span>🕐 7pm</span><span>📍 Multiple venues, Seattle</span></div>
+    <p>Stand-up comedy shows featuring local and national comedians across the city.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Public+Library+Special+Collections+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Public Library Special Collections Tour</h3>
+    <div class="meta"><span>📅 Thu Mar 26</span><span>🕐 2pm</span><span>📍 Seattle Central Library, Seattle</span></div>
+    <p>Architectural tour of award-winning library with rare book collections.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+International+Film+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$15-$20</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle International Film Festival</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 7pm</span><span>📍 Multiple theaters, Seattle</span></div>
+    <p>Prestigious festival showcasing independent and international films from around the world.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Emerald+City+Comic+Con+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$25-$50</span>
+  </div>
+  <div class="cd">
+    <h3>Emerald City Comic Con</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 5pm</span><span>📍 Washington Convention Center, Seattle</span></div>
+    <p>Major pop culture convention with celebrities, artists, and thousands of fans.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Pacific+Northwest+Ballet+Spring+Season+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$40-$150</span>
+  </div>
+  <div class="cd">
+    <h3>Pacific Northwest Ballet Spring Season</h3>
+    <div class="meta"><span>📅 Thu Mar 27</span><span>🕐 7:30pm</span><span>📍 McCaw Hall, Seattle</span></div>
+    <p>Premier ballet company performing classical and contemporary works.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Belltown+Art+Walk+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Belltown Art Walk</h3>
+    <div class="meta"><span>📅 Fri Mar 27</span><span>🕐 6pm</span><span>📍 Belltown, Seattle</span></div>
+    <p>Gallery openings and street art celebration in trendy urban neighborhood.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Underground+Shows+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
+    <span class="cb">🎤 Comedy</span><span class="pb pp">$15-$25</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Comedy Underground Shows</h3>
+    <div class="meta"><span>📅 Thu Mar 27</span><span>🕐 8pm</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Intimate comedy club with local and touring stand-up comedians.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Pike+Place+Market+Spring+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
     <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
     <h3>Pike Place Market Spring Festival</h3>
-    <div class="meta"><span>📅 Sat Apr 4 - Sun Apr 5</span><span>🕐 10am-5pm</span><span>📍 Pike Place Market, Downtown Seattle</span></div>
-    <p>Iconic Seattle destination celebrates spring with local vendors, live music, and fresh produce. Must-visit tourist spot.</p>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 9am</span><span>📍 Pike Place Market, Seattle</span></div>
+    <p>Iconic market celebration with local vendors, live music, and fresh seafood.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Street+Festival+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Capitol Hill Street Festival</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 11am-6pm</span><span>📍 Capitol Hill, Seattle</span></div>
-    <p>Vibrant neighborhood festival with local vendors, live music, and arts. Eclectic Seattle vibe.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Greenwood+Street+Fair+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Greenwood Street Fair</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 10am-5pm</span><span>📍 Greenwood, Seattle</span></div>
-    <p>Neighborhood festival with crafts, food, and live music. Local community celebration.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Sounders+FC+vs+Houston+Dynamo+Alki+Beach%2C+Seattle+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Mariners+Spring+Training+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$30-$100</span>
+    <span class="cb">🏅 Sports</span><span class="pb pp">$15-$40</span>
   </div>
   <div class="cd">
-    <h3>Sounders FC vs Houston Dynamo</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 7pm</span><span>📍 Lumen Field, SoDo</span></div>
-    <p>MLS match in energetic SoDo stadium. Easy access and exciting soccer action.</p>
+    <h3>Mariners Spring Training</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 1pm</span><span>📍 T-Mobile Park, Seattle</span></div>
+    <p>MLB baseball games featuring the Seattle Mariners in exciting spring season.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a></div>
-<div id="panel-lake_hills" class="panel" style="display:none;"><a href="https://www.google.com/search?q=Bellevue+Botanical+Garden+Spring+Display+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Issaquah+Gilman+Village+Farmers+Market+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Bellevue Botanical Garden Spring Display</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Bellevue Botanical Garden, Bellevue</span></div>
-    <p>Stunning spring flowers, native plants, and peaceful walking trails with seasonal displays.</p>
+    <h3>Issaquah Gilman Village Farmers Market</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 10am</span><span>📍 Gilman Village, Issaquah</span></div>
+    <p>Local produce, artisan goods, and food vendors in scenic village setting.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Pacific+Science+Center+Exhibits+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$20-$25</span>
-  </div>
-  <div class="cd">
-    <h3>Pacific Science Center Exhibits</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Seattle Center, Seattle</span></div>
-    <p>Interactive science exhibits, OMNIMAX theater, and hands-on learning for all ages.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Spring+Programs+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Aquarium Spring Programs</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 9:30am</span><span>📍 Seattle Aquarium, Seattle</span></div>
-    <p>Marine life exhibits, interactive touch pools, and seasonal creature encounters.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Theatre+Company+Spring+Production+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎭 Theater</span><span class="pb pp">$25-$75</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Theatre Company Spring Production</h3>
-    <div class="meta"><span>📅 Various dates Mar 23-Apr 6</span><span>🕐 7:30pm</span><span>📍 Paramount Theatre, Seattle</span></div>
-    <p>Professional theatrical performances featuring contemporary and classic plays.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Woodland+Park+Zoo+Spring+Opening+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Discovery+Park+Guided+Nature+Tours+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$24-$30</span>
+    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Woodland Park Zoo Spring Opening</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 9:30am</span><span>📍 Woodland Park Zoo, Seattle</span></div>
-    <p>Spring animal exhibits, baby animals, guided tours, and wildlife education programs.</p>
+    <h3>Discovery Park Guided Nature Tours</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 10am</span><span>📍 Discovery Park, Seattle</span></div>
+    <p>Scenic guided walks through Seattle's largest park with views of Puget Sound.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Arts+Museum+Spring+Exhibit+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Smith+Cove+Food+%26+Wine+Pairing+Event+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$60-$85</span>
+  </div>
+  <div class="cd">
+    <h3>Smith Cove Food & Wine Pairing Event</h3>
+    <div class="meta"><span>📅 Fri Mar 28</span><span>🕐 6pm</span><span>📍 Waterfront, Seattle</span></div>
+    <p>Curated food and local wine pairings with waterfront views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Lacey+V.+Murrow+Memorial+Bridge+Art+Installation+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pp">$20</span>
+    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Bellevue Arts Museum Spring Exhibit</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Bellevue Arts Museum, Bellevue</span></div>
-    <p>Contemporary crafts and fine arts in rotating spring exhibitions and galleries.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Spring+Docent+Tours+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pp">$25</span>
-  </div>
-  <div class="cd">
-    <h3>Museum of Flight Spring Docent Tours</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 11am & 2pm</span><span>📍 Museum of Flight, Seattle</span></div>
-    <p>Guided tours of aviation history, historic aircraft, and interactive flight simulators.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Square+Shopping+%26+Dining+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">Varies</span>
-  </div>
-  <div class="cd">
-    <h3>Bellevue Square Shopping & Dining</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Bellevue Square, Bellevue</span></div>
-    <p>Upscale shopping, dining, and spring seasonal events in downtown destination.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Kirkland+Performing+Arts+Center+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$20-$35</span>
-  </div>
-  <div class="cd">
-    <h3>Kirkland Performing Arts Center</h3>
-    <div class="meta"><span>📅 Various Mar 23-Apr 6</span><span>🕐 7:30pm</span><span>📍 Kirkland Performing Arts Center, Kirkland</span></div>
-    <p>Community theater productions and live performances featuring local talent.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=University+of+Washington+Sports+Events+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$10-$20</span>
-  </div>
-  <div class="cd">
-    <h3>University of Washington Sports Events</h3>
-    <div class="meta"><span>📅 Various dates Mar 23-Apr 6</span><span>🕐 Various</span><span>📍 UW Campus, Seattle</span></div>
-    <p>College sports including baseball, rowing, and track and field events.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Art+Museum+Spring+Collections+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$20</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Art Museum Spring Collections</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Seattle Art Museum, Seattle</span></div>
-    <p>World-class art collections including contemporary, Asian, and Native American works.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Issaquah+Gilman+Village+Spring+Events+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Issaquah Gilman Village Spring Events</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Gilman Village, Issaquah</span></div>
-    <p>Shopping village with stores, restaurants, galleries, and seasonal decorations.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Pike+Place+Market+Spring+Events+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>Pike Place Market Spring Events</h3>
-    <div class="meta"><span>📅 Daily Mar 23-Apr 6</span><span>🕐 10am</span><span>📍 Pike Place Market, Seattle</span></div>
-    <p>Historic market with fresh spring produce, flowers, crafts, and live performances.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Children%27s+Theatre+Spring+Show+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
-    <span class="cb">🎭 Theater</span><span class="pb pp">$15-$30</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Children's Theatre Spring Show</h3>
-    <div class="meta"><span>📅 Various Mar 23-Apr 6</span><span>🕐 1pm & 7pm</span><span>📍 Seattle Center, Seattle</span></div>
-    <p>Award-winning children's theater productions with engaging storytelling.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+International+Boat+Show+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$18</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle International Boat Show</h3>
-    <div class="meta"><span>📅 Thu-Sun Mar 26-29</span><span>🕐 10am</span><span>📍 Lumen Field, Seattle</span></div>
-    <p>New boats, marine products, and water sports equipment showcase with demos.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Glass+Art+Society+Exhibit+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pp">$10</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Glass Art Society Exhibit</h3>
-    <div class="meta"><span>📅 Fri-Sun Mar 26-28, Apr 2-4</span><span>🕐 12pm</span><span>📍 Seattle Glass Art Society, Seattle</span></div>
-    <p>Contemporary glass art exhibitions with artist demonstrations and studio access.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Comedy+Underground+Shows+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$15-$25</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Comedy Underground Shows</h3>
-    <div class="meta"><span>📅 Fri-Sat Mar 27-28, Apr 3-4</span><span>🕐 7pm & 9pm</span><span>📍 Comedy Underground, Seattle</span></div>
-    <p>Live stand-up comedy in iconic underground venue featuring local and touring comedians.</p>
+    <h3>Lacey V. Murrow Memorial Bridge Art Installation</h3>
+    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 Anytime</span><span>📍 Lake Washington, Seattle</span></div>
+    <p>Drive or bike across iconic floating bridge with scenic lake views.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Sounders+FC+vs+Portland+Timbers+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
@@ -1304,305 +1194,349 @@ body{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}
   </div>
   <div class="cd">
     <h3>Sounders FC vs Portland Timbers</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 7:30pm</span><span>📍 Lumen Field, Seattle</span></div>
-    <p>MLS soccer action with passionate fans and dynamic West Coast rivalry.</p>
+    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 1pm</span><span>📍 Lumen Field, Seattle</span></div>
+    <p>MLS soccer match with passionate fans and world-class athletes in iconic stadium.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Redmond+Watershed+Preserve+Spring+Tours+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$10</span>
-  </div>
-  <div class="cd">
-    <h3>Redmond Watershed Preserve Spring Tours</h3>
-    <div class="meta"><span>📅 Sat Mar 28, Apr 4</span><span>🕐 2pm</span><span>📍 Redmond Watershed Preserve, Redmond</span></div>
-    <p>Educational guided nature tours showcasing spring wildlife and ecological restoration.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Kirkland+Spring+Art+Walk+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Fremont+Street+Fair+Spring+Preview+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
+    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Kirkland Spring Art Walk</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 10am</span><span>📍 Downtown Kirkland, Kirkland</span></div>
-    <p>Downtown galleries and studios open for spring art exhibitions and artist interactions.</p>
+    <h3>Fremont Street Fair Spring Preview</h3>
+    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 10am</span><span>📍 Fremont, Seattle</span></div>
+    <p>Quirky neighborhood street fair with local artists, crafts, and street performers.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=University+of+Washington+Cherry+Blossom+Walk+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pf">Free</span>
-  </div>
-  <div class="cd">
-    <h3>University of Washington Cherry Blossom Walk</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 10am</span><span>📍 University of Washington Campus, Seattle</span></div>
-    <p>Guided campus tour featuring iconic cherry blossom trees and historic architecture.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Issaquah+Spring+Food+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$15-$25</span>
-  </div>
-  <div class="cd">
-    <h3>Issaquah Spring Food Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 11am</span><span>📍 Gilman Village, Issaquah</span></div>
-    <p>Local restaurants, food vendors, cooking demonstrations, and tasting opportunities.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Latin+Music+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$25-$35</span>
-  </div>
-  <div class="cd">
-    <h3>Seattle Latin Music Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 7pm</span><span>📍 Neumos, Seattle</span></div>
-    <p>Latin bands and DJ performances showcasing Latin music and dance.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Kirkland+Spring+Flower+Show+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Green+Lake+Spring+Walk+%26+Talk+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">📍 Experience</span><span class="pb pp">$12</span>
+    <span class="cb">📍 Experience</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Kirkland Spring Flower Show</h3>
-    <div class="meta"><span>📅 Sat Mar 28</span><span>🕐 1pm</span><span>📍 Kirkland Community House, Kirkland</span></div>
-    <p>Spring flower arrangements, horticultural displays, and gardening workshops.</p>
+    <h3>Green Lake Spring Walk & Talk</h3>
+    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 9am</span><span>📍 Green Lake, Seattle</span></div>
+    <p>Guided nature walk around scenic lake with local historian commentary.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Issaquah+Wildflower+Festival+Preview+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=University+District+Spring+Street+Fair+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$5</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Issaquah Wildflower Festival Preview</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 9am</span><span>📍 Gilman Village, Issaquah</span></div>
-    <p>Spring wildflowers, local vendors, guided nature walks, and community celebration.</p>
+    <h3>University District Spring Street Fair</h3>
+    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 11am</span><span>📍 University District, Seattle</span></div>
+    <p>College neighborhood street fair with food vendors and live entertainment.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Redmond+Summer+Festival+Planning+Fair+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Art+%26+Craft+Collective+Market+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Art & Craft Collective Market</h3>
+    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 10am</span><span>📍 Georgetown, Seattle</span></div>
+    <p>Handmade arts and crafts from local artisans in industrial neighborhood.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Redmond+Sammamish+River+Trail+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
     <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Redmond Summer Festival Planning Fair</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 12pm</span><span>📍 Redmond Town Center, Redmond</span></div>
-    <p>Community festival preview with local vendors, food samples, and entertainment.</p>
+    <h3>Redmond Sammamish River Trail Festival</h3>
+    <div class="meta"><span>📅 Sat Mar 30</span><span>🕐 10am</span><span>📍 Marymoor Park, Redmond</span></div>
+    <p>Spring festival celebrating local trails with bike vendors, food, and family activities.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Redmond+Marymoor+Park+Spring+Concerts+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Waterfront+Seafood+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&fit=crop')">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pp">Free-$15</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Waterfront Seafood Festival</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 11am</span><span>📍 Seattle Waterfront, Seattle</span></div>
+    <p>Fresh seafood tastings from local restaurants and food vendors with waterfront views.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Bainbridge+Island+Spring+Arts+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
     <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Redmond Marymoor Park Spring Concerts</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 6pm</span><span>📍 Marymoor Park, Redmond</span></div>
-    <p>Outdoor concert series with local bands in beautiful spring park setting.</p>
+    <h3>Bainbridge Island Spring Arts Festival</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 11am</span><span>📍 Bainbridge Island, WA</span></div>
+    <p>Local artists showcase work with live demonstrations and community celebration.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Redmond+Lights+%26+Lanterns+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$5</span>
-  </div>
-  <div class="cd">
-    <h3>Redmond Lights & Lanterns Festival</h3>
-    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 5pm</span><span>📍 Redmond Town Center, Redmond</span></div>
-    <p>Evening festival with lantern displays, cultural performances, and family activities.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Kirkland+Book+Festival+Author+Readings+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$10-$15</span>
-  </div>
-  <div class="cd">
-    <h3>Kirkland Book Festival Author Readings</h3>
-    <div class="meta"><span>📅 Sat Mar 29</span><span>🕐 2pm</span><span>📍 Downtown Kirkland, Kirkland</span></div>
-    <p>Local and regional authors with readings, signings, and literary discussions.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Photography+Walk+%26+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Washington+Park+Arboretum+Spring+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$30</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$10-$15</span>
   </div>
   <div class="cd">
-    <h3>Bellevue Photography Walk & Tour</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 9am</span><span>📍 Downtown Bellevue, Bellevue</span></div>
-    <p>Guided photography tour of spring blooms and urban architectural elements.</p>
+    <h3>Washington Park Arboretum Spring Tour</h3>
+    <div class="meta"><span>📅 Sun Mar 30</span><span>🕐 2pm</span><span>📍 Washington Park Arboretum, Seattle</span></div>
+    <p>Guided tour of blooming spring plants and rare tree collections.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Redmond+Regional+Farmers+Market+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Kirkland+Summer+Music+Festival+Preview+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+    <span class="cb">🎵 Music</span><span class="pb pp">$20-$35</span>
   </div>
   <div class="cd">
-    <h3>Redmond Regional Farmers Market</h3>
-    <div class="meta"><span>📅 Sun Mar 29, Apr 5</span><span>🕐 10am</span><span>📍 Redmond Town Center, Redmond</span></div>
-    <p>Spring produce, local vendors, artisan goods, and live music.</p>
+    <h3>Kirkland Summer Music Festival Preview</h3>
+    <div class="meta"><span>📅 Sun Mar 31</span><span>🕐 2pm</span><span>📍 Kirkland Performance Center, Kirkland</span></div>
+    <p>Classical music performances in charming waterfront venue.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Issaquah+Outdoor+Adventure+Fair+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Sounders+Practice+%26+Meet-and-Greet+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🏅 Sports</span><span class="pb pp">$10-$20</span>
   </div>
   <div class="cd">
-    <h3>Issaquah Outdoor Adventure Fair</h3>
-    <div class="meta"><span>📅 Sun Mar 29</span><span>🕐 10am</span><span>📍 Gilman Village, Issaquah</span></div>
-    <p>Outdoor gear vendors, hiking guides, and adventure sports demonstrations.</p>
+    <h3>Seattle Sounders Practice & Meet-and-Greet</h3>
+    <div class="meta"><span>📅 Tue Mar 31</span><span>🕐 3pm</span><span>📍 Lumen Field, Seattle</span></div>
+    <p>Watch MLS team practice and meet professional soccer players.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+International+Film+Festival+Opening+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Paramount+Theatre+Broadway+Series+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$15</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$50-$150</span>
   </div>
   <div class="cd">
-    <h3>Seattle International Film Festival Opening</h3>
-    <div class="meta"><span>📅 Thu Apr 2</span><span>🕐 7pm</span><span>📍 Paramount Theatre, Seattle</span></div>
-    <p>Prestigious festival launching with world premieres and diverse international cinema.</p>
+    <h3>Paramount Theatre Broadway Series</h3>
+    <div class="meta"><span>📅 Tue Apr 1</span><span>🕐 7:30pm</span><span>📍 Paramount Theatre, Seattle</span></div>
+    <p>World-class Broadway productions in historic 1928 theater with stunning architecture.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Art+Fair+at+Paramount+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Opera+Spring+Performance+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎉 Festival</span><span class="pb pp">$20</span>
+    <span class="cb">🎨 Arts</span><span class="pb pp">$45-$200</span>
   </div>
   <div class="cd">
-    <h3>Seattle Art Fair at Paramount</h3>
-    <div class="meta"><span>📅 Thu Apr 2 - Sun Apr 5</span><span>🕐 11am</span><span>📍 Paramount Theatre, Seattle</span></div>
-    <p>Contemporary and modern art from galleries worldwide featuring paintings, sculptures, and installations.</p>
+    <h3>Seattle Opera Spring Performance</h3>
+    <div class="meta"><span>📅 Wed Apr 2</span><span>🕐 7:30pm</span><span>📍 Seattle Opera House, Seattle</span></div>
+    <p>World-class opera productions in state-of-the-art performance venue.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Downtown+Park+Music+Series+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Intiman+Theatre+Spring+Performance+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$25-$50</span>
   </div>
   <div class="cd">
-    <h3>Bellevue Downtown Park Music Series</h3>
-    <div class="meta"><span>📅 Fri Apr 3</span><span>🕐 6pm</span><span>📍 Bellevue Downtown Park, Bellevue</span></div>
-    <p>Live outdoor music performances in spring setting with local musician talent.</p>
+    <h3>Intiman Theatre Spring Performance</h3>
+    <div class="meta"><span>📅 Thu Apr 2</span><span>🕐 7pm</span><span>📍 Intiman Theatre, Seattle</span></div>
+    <p>Contemporary theatrical productions with thought-provoking scripts.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Comedy+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seattle+Art+Fair+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🎤 Comedy</span><span class="pb pp">$20-$30</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pp">$20-$40</span>
   </div>
   <div class="cd">
-    <h3>Capitol Hill Comedy Festival</h3>
-    <div class="meta"><span>📅 Fri-Sat Apr 3-4</span><span>🕐 8pm</span><span>📍 Various venues, Seattle</span></div>
-    <p>Multi-venue comedy festival featuring national and local stand-up performers.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Jazz+Festival+Preview+Night+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
-    <span class="cb">🎵 Music</span><span class="pb pp">$25-$40</span>
-  </div>
-  <div class="cd">
-    <h3>Bellevue Jazz Festival Preview Night</h3>
-    <div class="meta"><span>📅 Fri Apr 3</span><span>🕐 7pm</span><span>📍 Bellevue Downtown Park, Bellevue</span></div>
-    <p>Live jazz performances from renowned regional and national musicians.</p>
+    <h3>Seattle Art Fair</h3>
+    <div class="meta"><span>📅 Fri Apr 3</span><span>🕐 11am</span><span>📍 CenturyLink Event Center, Seattle</span></div>
+    <p>Premier contemporary and modern art exhibition featuring galleries from around the world.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Seattle+Cherry+Blossom+%26+Japanese+Cultural+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$15</span>
+    <span class="cb">🍴 Food & Drink</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
     <h3>Seattle Cherry Blossom & Japanese Cultural Festival</h3>
     <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 10am</span><span>📍 Seattle Center, Seattle</span></div>
-    <p>Iconic celebration of Japanese culture with traditional performances, food, art, and stunning cherry blossoms.</p>
+    <p>Major celebration of Japanese culture with performances, food vendors, and cherry blossom displays.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seahawks+Spring+Game+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=University+of+Washington+Cherry+Blossom+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>University of Washington Cherry Blossom Festival</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 12pm</span><span>📍 University of Washington Campus, Seattle</span></div>
+    <p>Campus-wide celebration with Japanese food, music, and beautiful cherry blossoms.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+International+Wine+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
+    <span class="cb">🍴 Food & Drink</span><span class="pb pp">$45-$75</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle International Wine Festival</h3>
+    <div class="meta"><span>📅 Fri Apr 4</span><span>🕐 5pm</span><span>📍 Washington Convention Center, Seattle</span></div>
+    <p>Premium wine tastings from Washington wineries and food pairings.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Wallingford+Spring+Neighborhood+Celebration+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🏅 Sports</span><span class="pb pp">$20-$75</span>
+    <span class="cb">🎉 Festival</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Seahawks Spring Game</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 1pm</span><span>📍 Lumen Field, Seattle</span></div>
-    <p>NFL team spring training game with exciting football action and fan favorite moments.</p>
+    <h3>Wallingford Spring Neighborhood Celebration</h3>
+    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 10am</span><span>📍 Wallingford, Seattle</span></div>
+    <p>Family-friendly street fair with local businesses and community activities.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Kirkland+Waterfront+Art+Exhibition+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Seafair+Pirates+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
-    <span class="cb">🎨 Arts</span><span class="pb pf">Free</span>
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎉 Festival</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Kirkland Waterfront Art Exhibition</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 11am</span><span>📍 Kirkland Marina Park, Kirkland</span></div>
-    <p>Waterfront art installations, local artist displays, and scenic views.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Mercer+Island+Spring+Market+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop')">
-    <span class="cb">🍴 Food & Drink</span><span class="pb pp">Free entry</span>
-  </div>
-  <div class="cd">
-    <h3>Mercer Island Spring Market</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 9am</span><span>📍 Mercer Island Community Center, Mercer Island</span></div>
-    <p>Local artisan market, spring crafts, food vendors, and community gathering.</p>
-    <span class="cta">Find tickets &amp; details →</span>
-  </div>
-</div></a><a href="https://www.google.com/search?q=Mercer+Island+Heritage+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
-<div class="card">
-  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$15</span>
-  </div>
-  <div class="cd">
-    <h3>Mercer Island Heritage Tour</h3>
-    <div class="meta"><span>📅 Sat Apr 4</span><span>🕐 1pm</span><span>📍 Mercer Island Historical Society, Mercer Island</span></div>
-    <p>Island history tour including historic homes, landmarks, and cultural heritage.</p>
+    <h3>Seafair Pirates</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 2pm</span><span>📍 Alki Beach, Seattle</span></div>
+    <p>Playful pirate invasion and beach celebration with costumes and entertainment.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a><a href="https://www.google.com/search?q=Mercer+Island+Spring+Garden+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
-    <span class="cb">⛵ Tours</span><span class="pb pp">$30</span>
+    <span class="cb">⛵ Tours</span><span class="pb pp">$25-$35</span>
   </div>
   <div class="cd">
     <h3>Mercer Island Spring Garden Tour</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 10am</span><span>📍 Mercer Island, Mercer Island</span></div>
-    <p>Private garden tour showcasing award-winning island gardens and horticultural excellence.</p>
+    <div class="meta"><span>📅 Sun Apr 5</span><span>🕐 11am</span><span>📍 Various private gardens, Mercer Island</span></div>
+    <p>Exclusive tour of beautiful private gardens on upscale island community.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Seattle+Opera+Spring+Preview+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Capitol+Hill+Street+Fair+Spring+Edition+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Capitol Hill Street Fair Spring Edition</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 10am</span><span>📍 Capitol Hill, Seattle</span></div>
+    <p>Eclectic neighborhood street fair with local vendors, food, and live music.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Children%27s+Theatre+Spring+Productions+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
-    <span class="cb">🎭 Theater</span><span class="pb pp">$40-$150</span>
+    <span class="cb">🎭 Theater</span><span class="pb pp">$20-$40</span>
   </div>
   <div class="cd">
-    <h3>Seattle Opera Spring Preview</h3>
-    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 2pm</span><span>📍 McCaw Hall, Seattle</span></div>
-    <p>Opera performances featuring world-class singers and elaborate productions.</p>
+    <h3>Seattle Children's Theatre Spring Productions</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 2pm</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Family-friendly theatrical productions with engaging storylines for all ages.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
-</div></a><a href="https://www.google.com/search?q=Bellevue+Fine+Arts+%26+Crafts+Festival+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+</div></a><a href="https://www.google.com/search?q=Ballard+Street+Festival+Spring+Preview+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
 <div class="card">
   <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80&fit=crop')">
-    <span class="cb">🛍️ Market</span><span class="pb pf">Free</span>
+    <span class="cb">🎵 Music</span><span class="pb pf">Free</span>
   </div>
   <div class="cd">
-    <h3>Bellevue Fine Arts & Crafts Festival</h3>
-    <div class="meta"><span>📅 Sun Apr 5</span><span>🕐 10am</span><span>📍 Bellevue Downtown Park, Bellevue</span></div>
-    <p>Local artists displaying paintings, crafts, jewelry, and handmade goods.</p>
+    <h3>Ballard Street Festival Spring Preview</h3>
+    <div class="meta"><span>📅 Sat Apr 5</span><span>🕐 12pm</span><span>📍 Ballard, Seattle</span></div>
+    <p>Nordic-influenced neighborhood celebration with street vendors and live performances.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Art+Museum+Special+Exhibitions+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$20-$25</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Art Museum Special Exhibitions</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Seattle Art Museum, Seattle</span></div>
+    <p>World-renowned art collections including contemporary, Asian, and Native American works.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Bellevue+Arts+Museum+Exhibitions+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pp">$15-$20</span>
+  </div>
+  <div class="cd">
+    <h3>Bellevue Arts Museum Exhibitions</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Bellevue Arts Museum, Bellevue</span></div>
+    <p>Contemporary art and craft exhibitions featuring Pacific Northwest and international artists.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Chihuly+Garden+and+Glass+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$30-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Chihuly Garden and Glass</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Spectacular glass art installations and gardens by renowned artist Dale Chihuly.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Museum+of+Flight+Spring+Programs+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🛍️ Market</span><span class="pb pp">$25-$30</span>
+  </div>
+  <div class="cd">
+    <h3>Museum of Flight Spring Programs</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Museum of Flight, Seattle</span></div>
+    <p>Interactive aircraft exhibits and flight simulators for aviation enthusiasts.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Aquarium+Spring+Exhibits+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80&fit=crop')">
+    <span class="cb">🎨 Arts</span><span class="pb pp">$30-$35</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Aquarium Spring Exhibits</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 9:30am</span><span>📍 Seattle Aquarium, Seattle</span></div>
+    <p>Interactive marine life exhibits and touch pools with Pacific Northwest focus.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=EMP+Museum+Interactive+Exhibits+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&fit=crop')">
+    <span class="cb">🎵 Music</span><span class="pb pp">$25-$30</span>
+  </div>
+  <div class="cd">
+    <h3>EMP Museum Interactive Exhibits</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Seattle Center, Seattle</span></div>
+    <p>Music, sci-fi, and pop culture exhibits with interactive displays and memorabilia.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Snoqualmie+Falls+Spring+Viewing+Tour+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=600&q=80&fit=crop')">
+    <span class="cb">🌿 Outdoors</span><span class="pb pf">Free</span>
+  </div>
+  <div class="cd">
+    <h3>Snoqualmie Falls Spring Viewing Tour</h3>
+    <div class="meta"><span>📅 Daily</span><span>🕐 10am</span><span>📍 Snoqualmie, WA</span></div>
+    <p>Scenic waterfall viewpoint with hiking trails and visitor center exhibits.</p>
+    <span class="cta">Find tickets &amp; details →</span>
+  </div>
+</div></a><a href="https://www.google.com/search?q=Seattle+Theater+District+Spring+Events+Lake+Hills%2C+Bellevue+event" target="_blank" rel="noopener" class="cl">
+<div class="card">
+  <div class="ci" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop')">
+    <span class="cb">🎭 Theater</span><span class="pb pp">$20-$100</span>
+  </div>
+  <div class="cd">
+    <h3>Seattle Theater District Spring Events</h3>
+    <div class="meta"><span>📅 Various</span><span>🕐 7:30pm</span><span>📍 Theater District, Seattle</span></div>
+    <p>Multiple theatrical productions ranging from Broadway to experimental works.</p>
     <span class="cta">Find tickets &amp; details →</span>
   </div>
 </div></a></div>
