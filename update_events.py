@@ -176,38 +176,38 @@ def build_html(all_events):
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}}
-.hero{{background:linear-gradient(160deg,#1c1812 0%,#2d2418 55%,#3d3020 100%);color:#f9f7f4;padding:52px 24px 44px;text-align:center}}
-.ey{{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#b8965a;margin-bottom:12px}}
-.hero h1{{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:500;color:#f9f7f4;margin-bottom:10px;line-height:1.15}}
-.hero p{{font-size:.9rem;color:rgba(249,247,244,.6);margin-bottom:18px}}
-.pill{{display:inline-block;background:rgba(184,150,90,.18);border:1px solid rgba(184,150,90,.4);color:#d4a96a;padding:6px 20px;border-radius:999px;font-size:.8rem;letter-spacing:.08em}}
+body{{font-family:'Inter',sans-serif;background:#FAFAFA;color:#0D0D0D}}
+.hero{{background:linear-gradient(160deg,#0D0D0D 0%,#1A1A1A 100%);color:#F5F0EB;padding:52px 24px 44px;text-align:center}}
+.ey{{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#E8573C;margin-bottom:12px}}
+.hero h1{{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:500;color:#F5F0EB;margin-bottom:10px;line-height:1.15}}
+.hero p{{font-size:.9rem;color:rgba(245,240,235,.6);margin-bottom:18px}}
+.pill{{display:inline-block;background:rgba(232,87,60,.15);border:1px solid rgba(232,87,60,.4);color:#E8573C;padding:6px 20px;border-radius:999px;font-size:.8rem;letter-spacing:.08em}}
 .tabs-wrap{{background:#fff;border-bottom:1px solid #e8e0d5;display:flex;justify-content:center;overflow-x:auto;padding:0 16px}}
-.tab{{font-family:'Inter',sans-serif;padding:16px 24px;border:none;background:none;font-size:.84rem;font-weight:500;color:#8a7f72;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px}}
-.tab:hover{{color:#1c1812}}
-.tab.active{{color:#1c1812;border-bottom-color:#b8965a;font-weight:600}}
-.tc{{background:#f0ebe3;color:#8a7f72;font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:999px}}
-.tab.active .tc{{background:#b8965a;color:#fff}}
+.tab{{font-family:'Inter',sans-serif;padding:16px 24px;border:none;background:none;font-size:.84rem;font-weight:500;color:#6B6B6B;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px}}
+.tab:hover{{color:#0D0D0D}}
+.tab.active{{color:#0D0D0D;border-bottom-color:#E8573C;font-weight:600}}
+.tc{{background:#F5F0EB;color:#6B6B6B;font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:999px}}
+.tab.active .tc{{background:#E8573C;color:#fff}}
 .content{{max-width:1160px;margin:0 auto;padding:36px 20px 56px}}
 .panel{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}}
 .cl{{text-decoration:none;color:inherit;display:block}}
-.card{{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e0d5;box-shadow:0 1px 4px rgba(28,24,18,.05);transition:transform .25s,box-shadow .25s;height:100%}}
-.cl:hover .card{{transform:translateY(-5px);box-shadow:0 16px 40px rgba(28,24,18,.12)}}
+.card{{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e0d5;box-shadow:0 1px 4px rgba(13,13,13,.06);transition:transform .25s,box-shadow .25s;height:100%}}
+.cl:hover .card{{transform:translateY(-5px);box-shadow:0 16px 40px rgba(13,13,13,.14)}}
 .ci{{height:190px;background-size:cover;background-position:center;position:relative}}
-.ci::after{{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(28,24,18,.35) 100%)}}
-.cb{{position:absolute;top:12px;left:12px;background:rgba(28,24,18,.6);backdrop-filter:blur(8px);color:#f9f7f4;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:999px;z-index:1}}
+.ci::after{{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,13,13,.4) 100%)}}
+.cb{{position:absolute;top:12px;left:12px;background:rgba(13,13,13,.65);backdrop-filter:blur(8px);color:#F5F0EB;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:999px;z-index:1}}
 .pb{{position:absolute;top:12px;right:12px;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;z-index:1}}
 .pf{{background:#d4edda;color:#155724}}
-.pp{{background:#fef3e2;color:#7d5a00}}
+.pp{{background:#fdecea;color:#C94228}}
 .cd{{padding:18px 20px 20px}}
-.cd h3{{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;line-height:1.35;color:#1c1812}}
+.cd h3{{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;line-height:1.35;color:#0D0D0D}}
 .meta{{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}}
-.meta span{{font-size:.76rem;color:#8a7f72}}
-.cd p{{font-size:.87rem;color:#4a4035;line-height:1.55;margin-bottom:14px}}
-.cta{{font-size:.78rem;font-weight:600;color:#b8965a;letter-spacing:.03em}}
-.empty{{grid-column:1/-1;text-align:center;padding:80px 0;color:#8a7f72}}
-.footer{{text-align:center;font-size:.71rem;color:#8a7f72;padding:0 20px 40px}}
-.footer a{{color:#b8965a;text-decoration:none}}
+.meta span{{font-size:.76rem;color:#6B6B6B}}
+.cd p{{font-size:.87rem;color:#1A1A1A;line-height:1.55;margin-bottom:14px}}
+.cta{{font-size:.78rem;font-weight:600;color:#E8573C;letter-spacing:.03em}}
+.empty{{grid-column:1/-1;text-align:center;padding:80px 0;color:#6B6B6B}}
+.footer{{text-align:center;font-size:.71rem;color:#6B6B6B;padding:0 20px 40px}}
+.footer a{{color:#E8573C;text-decoration:none}}
 @media(max-width:640px){{.hero h1{{font-size:1.9rem}}.panel{{grid-template-columns:1fr}}.tab{{padding:14px 16px;font-size:.78rem}}}}
 </style>
 </head>
