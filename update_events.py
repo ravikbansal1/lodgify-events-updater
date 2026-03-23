@@ -93,7 +93,17 @@ No markdown, no explanation. JSON array only."""
             return []
 
         events = json.loads(clean[s:e+1])
-        events.sort(key=lambda x: -float(x.get("popularity") or 0))
+        # Sort by date
+        from datetime import datetime
+        def parse_date(e):
+            try:
+                return datetime.strptime(e.get("date","").strip(), "%a %b %d")
+            except:
+                try:
+                    return datetime.strptime(e.get("date","").strip(), "%A %B %d")
+                except:
+                    return datetime.max
+        events.sort(key=parse_date)
         print(f"  Got {len(events)} events ✅", flush=True)
         return events[:50]
 
@@ -204,7 +214,7 @@ body{{font-family:'Inter',sans-serif;background:#f9f7f4;color:#1c1812}}
 </div>
 <div class="tabs-wrap">{tabs}</div>
 <div class="content">{panels}</div>
-<div class="footer">Updated {updated} &nbsp;·&nbsp; Sorted by popularity &nbsp;·&nbsp; Events subject to change &nbsp;·&nbsp; <a href="https://nestinlux.com" target="_blank">nestinlux.com</a></div>
+<div class="footer">Updated {updated} &nbsp;·&nbsp; Sorted by date &nbsp;·&nbsp; Events subject to change &nbsp;·&nbsp; <a href="https://nestinlux.com" target="_blank">nestinlux.com</a></div>
 <script>
 function switchTab(id,btn){{
   document.querySelectorAll('.panel').forEach(p=>p.style.display='none');
